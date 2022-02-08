@@ -178,7 +178,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Zachary Clay - [@twitter_handle](https://twitter.com/twitter_handle) - zachclayc130@gmail.com
+Zachary Clay - LinkedIn: [@LinkedIn](https://www.linkedin.com/in/zachary-clay-027215203/) - Email: zachclayc130@gmail.com
 
 Project Link: [https://github.com/Zach-Clay/Challenge.me](https://github.com/Zach-Clay/Challenge.me)
 
