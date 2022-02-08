@@ -27,7 +27,7 @@
 <h3 align="center">Challenge.me</h3>
 
   <p align="center">
-    project_description
+    Challenge.me is an app deisgned to get you out in the world and our of your comfort zone. The app will assign you a variety of tasks to complete in an amount of time and share your expereinces with other users! 
     <br />
     <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
     <br />
@@ -83,15 +83,8 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 ### Built With
 
-* [Next.js](https://nextjs.org/)
 * [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-
+* [React Native](https://reactnative.dev/)
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
