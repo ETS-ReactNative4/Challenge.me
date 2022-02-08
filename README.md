@@ -178,9 +178,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Zachary Clay - (@LinkedIn)[https://www.linkedin.com/in/zachary-clay-027215203/] - Email: zachclayc130@gmail.com
-Amara Obasi - (@LinkedIn)[https://www.linkedin.com/in/amaraobasi/] - Email: aobasi4@gmail.com
-Kita Pairojtanachai (Chris) - (@LinkedIn)[https://www.linkedin.com/in/chris-kpc/] - Email: kita.pairojtanachai@gmail.com
+Zachary Clay - [@LinkedIn](https://www.linkedin.com/in/zachary-clay-027215203/) - Email: zachclayc130@gmail.com
+Amara Obasi - [@LinkedIn](https://www.linkedin.com/in/amaraobasi/) - Email: aobasi4@gmail.com
+Kita Pairojtanachai (Chris) - [@LinkedIn](https://www.linkedin.com/in/chris-kpc/) - Email: kita.pairojtanachai@gmail.com
 
 Project Link: [https://github.com/Zach-Clay/Challenge.me](https://github.com/Zach-Clay/Challenge.me)
 
