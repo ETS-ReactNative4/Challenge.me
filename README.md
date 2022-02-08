@@ -27,7 +27,7 @@
 <h3 align="center">Challenge.me</h3>
 
   <p align="center">
-    Challenge.me is an app deisgned to get you out in the world and our of your comfort zone. The app will assign you a variety of tasks to complete in an amount of time and share your expereinces with other users! 
+    Challenge.me is an app deisgned to get you out in the world and our of your comfort zone. The app will assign you a variety of tasks to complete in an amount of time and share your experiences with other users! 
     <br />
     <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
     <br />
