@@ -180,7 +180,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Zachary Clay - [@LinkedIn](https://www.linkedin.com/in/zachary-clay-027215203/) - Email: zachclayc130@gmail.com
 
-Amara Obasi - [@LinkedIn](https://www.linkedin.com/in/amaraobasi/) - Email: aobasi4@gmail.com
+Amara Obasi - [@LinkedIn](https://www.linkedin.com/in/amaraobasi/) - Email: aobasi4@gmail.com (Scrum Master)
 
 Kita Pairojtanachai (Chris) - [@LinkedIn](https://www.linkedin.com/in/chris-kpc/) - Email: kita.pairojtanachai@gmail.com
 
