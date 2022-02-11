@@ -73,7 +73,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
 Challenge.me is a mobile app that will challenge you to get out in the world and accomplish new things. The app will assign you challenges that you can complete throughout the week and share your progress with friends.
 
