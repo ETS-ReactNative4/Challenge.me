@@ -85,6 +85,8 @@ Challenge.me is a mobile app that will challenge you to get out in the world and
 
 * [React.js](https://reactjs.org/)
 * [React Native](https://reactnative.dev/)
+* [Express (TypeScript) REST API](http://expressjs.com)
+* [PostgreSQL](https://www.postgresql.org/docs/9.1/app-psql.html)
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
