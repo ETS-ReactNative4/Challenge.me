@@ -186,6 +186,8 @@ Amara Obasi - [@LinkedIn](https://www.linkedin.com/in/amaraobasi/) - Email: aoba
 
 Kita Pairojtanachai (Chris) - [@LinkedIn](https://www.linkedin.com/in/chris-kpc/) - Email: kita.pairojtanachai@gmail.com
 
+David Brown - [@LinkedIn](https://www.linkedin.com/in/david-brown-44b2a9193/) - Email: dbrown3562@gmail.com
+
 Project Link: [https://github.com/Zach-Clay/Challenge.me](https://github.com/Zach-Clay/Challenge.me)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
