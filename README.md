@@ -130,7 +130,7 @@ This is an example of how to list things you need to use the software and how to
 
 UI/UX Resources and Screenshots from the app
 
-View Wireframe diagrams here: 
+View Wireframe diagrams here: https://www.figma.com/file/NtweGDfOTa0jkF41IpAsPO/Challenge.Me-Wireframe?node-id=0%3A1
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
