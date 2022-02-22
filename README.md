@@ -130,8 +130,6 @@ This is an example of how to list things you need to use the software and how to
 
 UI/UX Resources and Screenshots from the app
 
-View Wireframe diagrams here: https://www.figma.com/file/NtweGDfOTa0jkF41IpAsPO/Challenge.Me-Wireframe?node-id=0%3A1
-
 _For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -141,8 +139,16 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 Here are the wireframe screenshots of our features:
-- Login Screen
+Login Screen
 <img src="images/wireframe/Login.jpg" alt="Logo" width="150" height="auto">
+Create Account Screen
+<img src="images/wireframe/CreateAccount.jpg" alt="Logo" width="150" height="auto">
+Homepage
+<img src="images/wireframe/Homepage.jpg" alt="Logo" width="150" height="auto">
+Profile
+<img src="images/wireframe/Profile.jpg" alt="Logo" width="150" height="auto">
+Accessibility
+<img src="images/wireframe/Accessibility.jpg" alt="Logo" width="150" height="auto">
 
 See the [open issues](https://github.com/Zach-Clay/Challenge.me/issues) for a full list of proposed features (and known issues).
 
