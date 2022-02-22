@@ -140,11 +140,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 <!-- ROADMAP -->
 ## Roadmap
-
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
+Here are the wireframe screenshots of our features:
+- Login Screen
+<img src="images/wireframe/Login.jpg" alt="Logo" width="150" height="auto">
 
 See the [open issues](https://github.com/Zach-Clay/Challenge.me/issues) for a full list of proposed features (and known issues).
 
