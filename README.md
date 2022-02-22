@@ -139,15 +139,15 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 Here are the wireframe screenshots of our features:
-Login Screen
+- Login Screen
 <img src="images/wireframe/Login.jpg" alt="Logo" width="150" height="auto">
-Create Account Screen
+- Create Account Screen
 <img src="images/wireframe/CreateAccount.jpg" alt="Logo" width="150" height="auto">
-Homepage
+- Homepage
 <img src="images/wireframe/Homepage.jpg" alt="Logo" width="150" height="auto">
-Profile
+- Profile
 <img src="images/wireframe/Profile.jpg" alt="Logo" width="150" height="auto">
-Accessibility
+- Accessibility
 <img src="images/wireframe/Accessibility.jpg" alt="Logo" width="150" height="auto">
 
 See the [open issues](https://github.com/Zach-Clay/Challenge.me/issues) for a full list of proposed features (and known issues).
