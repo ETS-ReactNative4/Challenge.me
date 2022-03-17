@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  db:
+    build: ./db
+    container_name: db
+    volumes:
+      - ./db/backup/:/docker-entrypoint-initdb.d/
+      - ./db/data:/var/lib/postgresql/data
+    ports:
+      - 8645:5432
