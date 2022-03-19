@@ -43,8 +43,8 @@ model Challenge {
 model UserAccessibility {
   userId          Int
   accessibilityId Int
-  User            User          @relation(references: [id], fields: [userId])
-  Accessibility   Accessibility @relation(references: [id], fields: [accessibilityId])
+  User            User          @relation(fields: [userId], references: [id])
+  Accessibility   Accessibility @relation(fields: [accessibilityId], references: [id])
 
   @@id([userId, accessibilityId])
 }
@@ -52,8 +52,8 @@ model UserAccessibility {
 model ChallengeAccessibility {
   challengeId     Int
   accessibilityId Int
-  Challenge       Challenge     @relation(references: [id], fields: [challengeId])
-  Accessibility   Accessibility @relation(references: [id], fields: [accessibilityId])
+  Challenge       Challenge     @relation(fields: [challengeId], references: [id])
+  Accessibility   Accessibility @relation(fields: [accessibilityId], references: [id])
 
   @@id([challengeId, accessibilityId])
 }
@@ -62,8 +62,8 @@ model UserChallenge {
   userId      Int
   challengeId Int
   isCompleted Boolean   @default(false)
-  User        User      @relation(references: [id], fields: [userId])
-  Challenge   Challenge @relation(references: [id], fields: [challengeId])
+  User        User      @relation(fields: [userId], references: [id])
+  Challenge   Challenge @relation(fields: [challengeId], references: [id])
 
 
   @@id([userId, challengeId])
