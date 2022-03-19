@@ -3,7 +3,7 @@ version: "3"
 services:
   db:
     build: ./db
-    container_name: db
+    container_name: challengeme-db
     volumes:
       - ./db/backup/:/docker-entrypoint-initdb.d/
       - ./db/data:/var/lib/postgresql/data
