@@ -14,7 +14,7 @@ export class ErrorException extends Error {
       case ErrorCode.Unauthenticated:
         this.status = 401;
         break;
-      case ErrorCode.MaximumAllowedGrade:
+      case ErrorCode.BadRequest:
         this.status = 400;
         break;
       case ErrorCode.AsyncError:
