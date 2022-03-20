@@ -1,0 +1,70 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                Int                 @id @default(autoincrement())
+  firstName         String
+  lastName          String
+  username          String              @unique
+  password          String?
+  salt              String?
+  dateOfBirth       DateTime
+  gender            Int
+  notiPush          Boolean             @default(true)
+  profileImgPath    String?
+  UserAccessibility UserAccessibility[]
+  UserChallenge     UserChallenge[]
+}
+
+model Accessibility {
+  id                     Int                      @id @default(autoincrement())
+  label                  String                   @unique
+  UserAccessibility      UserAccessibility[]
+  ChallengeAccessibility ChallengeAccessibility[]
+}
+
+model Challenge {
+  id                     Int                      @id @default(autoincrement())
+  label                  String
+  points                 Int
+  ChallengeAccessibility ChallengeAccessibility[]
+  UserChallenge          UserChallenge[]
+}
+
+model UserAccessibility {
+  userId          Int
+  accessibilityId Int
+  User            User          @relation(fields: [userId], references: [id])
+  Accessibility   Accessibility @relation(fields: [accessibilityId], references: [id])
+
+  @@id([userId, accessibilityId])
+}
+
+model ChallengeAccessibility {
+  challengeId     Int
+  accessibilityId Int
+  Challenge       Challenge     @relation(fields: [challengeId], references: [id])
+  Accessibility   Accessibility @relation(fields: [accessibilityId], references: [id])
+
+  @@id([challengeId, accessibilityId])
+}
+
+model UserChallenge {
+  userId      Int
+  challengeId Int
+  isCompleted Boolean   @default(false)
+  User        User      @relation(fields: [userId], references: [id])
+  Challenge   Challenge @relation(fields: [challengeId], references: [id])
+
+
+  @@id([userId, challengeId])
+}
