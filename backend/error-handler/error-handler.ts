@@ -18,8 +18,6 @@ export const errorHandler = (
     res.status(err.status).send(err);
   } else {
     // For unhandled errors.
-    res
-      .status(500)
-      .send({ code: ErrorCode.UnknownError, status: 500 } as ErrorModel);
+    res.status(500).send({ message: "An unknown error occurred." });
   }
 };

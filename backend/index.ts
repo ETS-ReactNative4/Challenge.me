@@ -2,7 +2,7 @@ import express, { Application, Request, Response } from "express";
 import cors from "cors";
 import "dotenv/config";
 import "dotenv";
-import { ResponseBody } from "./interfaces";
+import { ResponseBody } from "./model/interfaces";
 
 import user from "./routers/user.router";
 import { errorHandler } from "./error-handler/error-handler";

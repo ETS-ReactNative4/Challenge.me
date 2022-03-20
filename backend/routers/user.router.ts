@@ -1,8 +1,14 @@
-import express from "express";
+import express, { Request } from "express";
 import * as userHandler from "../handlers/user.handler";
+import { UserLoginReqParams, UserRegisterBody } from "../model/user";
+
 const router = express.Router();
 
-router.get("/login", (req, res) => {
+router.post("/", (req: Request<{}, {}, UserRegisterBody>, res) => {
+  userHandler.register(req, res);
+});
+
+router.get("/login", (req: Request<any, any, any, UserLoginReqParams>, res) => {
   userHandler.login(req, res);
 });
 

@@ -10,7 +10,7 @@ export class ErrorModel {
   /**
    * Any additional data that is required for translation.
    */
-  public metaData?: any;
+  public message?: string;
 
   constructor(code: string, status: number) {
     this.code = code;
