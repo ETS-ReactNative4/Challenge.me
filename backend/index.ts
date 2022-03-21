@@ -16,7 +16,6 @@ const corsOptions = { origin: true, credentials: true };
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(errorHandler);
 
 app.get("/", async (req: Request, res: Response): Promise<Response> => {
   const resBody: ResponseBody = { message: "Server operating normally." };
@@ -24,6 +23,9 @@ app.get("/", async (req: Request, res: Response): Promise<Response> => {
 });
 
 app.use("/user", user);
+
+// Error handler must always be at the end of application stack.
+app.use(errorHandler);
 
 try {
   app.listen(port, (): void => {
