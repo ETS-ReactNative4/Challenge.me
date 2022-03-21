@@ -13,6 +13,12 @@ export interface UserLoginReqParams {
   password: string;
 }
 
+export interface UserResetPasswordBody {
+  username: string;
+  dateOfBirth: Date;
+  newPassword: string;
+}
+
 export default class User {
   id: number;
   firstName: string;

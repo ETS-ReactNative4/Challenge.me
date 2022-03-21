@@ -30,7 +30,7 @@ export async function createUser(user: UserRegisterBody): Promise<User> {
     if (e instanceof Prisma.PrismaClientKnownRequestError) {
       throw new ErrorException(ErrorCode.PrismaError);
     }
-    throw new ErrorException(ErrorCode.UnknownDbError);
+    throw new ErrorException(ErrorCode.ServiceError, (e as Error).message);
   }
 }
 
@@ -50,6 +50,52 @@ export async function checkPasswordMatch(
     if (e instanceof Prisma.PrismaClientKnownRequestError) {
       throw new ErrorException(ErrorCode.PrismaError);
     }
-    throw new ErrorException(ErrorCode.UnknownDbError);
+    throw new ErrorException(ErrorCode.ServiceError, (e as Error).message);
+  }
+}
+
+export async function checkDobMatch(
+  username: string,
+  dateOfBirth: Date
+): Promise<boolean> {
+  try {
+    const user = await prisma.user.findFirst({
+      where: {
+        username: username,
+      },
+    });
+    if (user === null || user.dateOfBirth === null) return false;
+
+    return user.dateOfBirth.getTime() === dateOfBirth.getTime();
+  } catch (e) {
+    if (e instanceof Prisma.PrismaClientKnownRequestError) {
+      throw new ErrorException(ErrorCode.PrismaError);
+    }
+    throw new ErrorException(ErrorCode.ServiceError, (e as Error).message);
+  }
+}
+
+export async function updatePassword(
+  username: string,
+  newPassword: string
+): Promise<User> {
+  const salt = await generateSalt();
+  const hash = await hashPassword(newPassword, salt);
+
+  try {
+    return await prisma.user.update({
+      where: {
+        username: username,
+      },
+      data: {
+        salt: salt,
+        password: hash,
+      },
+    });
+  } catch (e) {
+    if (e instanceof Prisma.PrismaClientKnownRequestError) {
+      throw new ErrorException(ErrorCode.PrismaError);
+    }
+    throw new ErrorException(ErrorCode.ServiceError, (e as Error).message);
   }
 }

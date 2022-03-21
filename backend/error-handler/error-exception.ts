@@ -22,11 +22,9 @@ export class ErrorException extends Error {
         break;
       case ErrorCode.PrismaError:
         this.status = 500;
-        this.message = "Prisma client error";
         break;
-      case ErrorCode.UnknownDbError:
+      case ErrorCode.ServiceError:
         this.status = 500;
-        this.message = "Unknown database operation error";
         break;
       default:
         this.status = 500;

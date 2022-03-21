@@ -4,5 +4,5 @@ export class ErrorCode {
   public static readonly BadRequest = "BadRequest";
   public static readonly UnknownError = "UnknownError";
   public static readonly PrismaError = "PrismaError";
-  public static readonly UnknownDbError = "UnknwonDbError";
+  public static readonly ServiceError = "ServiceError";
 }
