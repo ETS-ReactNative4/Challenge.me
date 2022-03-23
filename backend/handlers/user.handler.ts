@@ -1,6 +1,4 @@
 import { NextFunction, Request, Response } from "express";
-import { ErrorCode } from "../error-handler/error-code";
-import { ErrorException } from "../error-handler/error-exception";
 import { ResponseBody } from "../model/interfaces";
 import {
   UserLoginReqParams,
@@ -15,11 +13,11 @@ import {
   updatePassword,
 } from "../services/user.service";
 import { sign } from "jsonwebtoken";
-import { nextTick } from "process";
 
 export async function register(
   req: Request<any, any, UserRegisterBody>,
-  res: Response
+  res: Response,
+  next: NextFunction
 ) {
   let resBody: ResponseBody = { message: "Register failed." };
 
@@ -43,13 +41,14 @@ export async function register(
 
     return res.status(500).json(resBody);
   } catch (e) {
-    throw new ErrorException(ErrorCode.UnknownError, (e as Error).message);
+    next(e);
   }
 }
 
 export async function login(
   req: Request<any, any, any, UserLoginReqParams>,
-  res: Response
+  res: Response,
+  next: NextFunction
 ) {
   let resBody: ResponseBody = { message: "Login failed" };
 
@@ -85,7 +84,7 @@ export async function login(
 
     return res.status(200).json({ token: token, refreshToken: refreshToken });
   } catch (e) {
-    throw new ErrorException(ErrorCode.UnknownError, (e as Error).message);
+    next(e);
   }
 }
 
@@ -112,8 +111,6 @@ export async function resetPassword(
 
     return res.status(500).json(resBody);
   } catch (e) {
-    // throw new ErrorException(ErrorCode.UnknownError, (e as Error).message);
-    // throw e;
     next(e);
   }
 }
