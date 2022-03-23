@@ -18,9 +18,9 @@ model User {
   password          String?
   salt              String?
   dateOfBirth       DateTime
-  gender            Int
+  gender            Int                 @default(-1)
   notiPush          Boolean             @default(true)
-  profileImgPath    String?
+  profileImgPath    String              @default("")
   UserAccessibility UserAccessibility[]
   UserChallenge     UserChallenge[]
 }
