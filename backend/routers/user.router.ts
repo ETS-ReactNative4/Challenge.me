@@ -5,6 +5,7 @@ import {
   UserLoginReqParams,
   UserRegisterBody,
   UserResetPasswordBody,
+  UserUpdateBody,
 } from '../model/user';
 
 const router = express.Router();
@@ -39,6 +40,18 @@ router.put(
     next: NextFunction
   ) => {
     userHandler.resetPassword(req, res, next);
+  }
+);
+
+router.put(
+  '/',
+  jwtChecker,
+  (
+    req: Request<any, any, UserUpdateBody>,
+    res: Response,
+    next: NextFunction
+  ) => {
+    userHandler.editProfile(req, res, next);
   }
 );
 

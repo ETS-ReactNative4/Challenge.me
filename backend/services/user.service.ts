@@ -1,7 +1,7 @@
 import prisma from '../lib/prisma';
-import { UserLoginReqParams, UserRegisterBody } from '../model/user';
+import UserImpl, { UserLoginReqParams, UserRegisterBody } from '../model/user';
 import { generateSalt, hashPassword } from '../lib/cypto';
-import { Prisma, User } from '@prisma/client';
+import { Prisma, User as UserPrisma } from '@prisma/client';
 import { ErrorException } from '../error-handler/error-exception';
 import { ErrorCode } from '../error-handler/error-code';
 
@@ -9,7 +9,7 @@ export async function checkUserExists(username: string): Promise<boolean> {
   return (await prisma.user.count({ where: { username: username } })) === 1;
 }
 
-export async function createUser(user: UserRegisterBody): Promise<User> {
+export async function createUser(user: UserRegisterBody): Promise<UserPrisma> {
   const salt = await generateSalt();
   const hash = await hashPassword(user.password, salt);
 
@@ -78,7 +78,7 @@ export async function checkDobMatch(
 export async function updatePassword(
   username: string,
   newPassword: string
-): Promise<User> {
+): Promise<UserPrisma> {
   const salt = await generateSalt();
   const hash = await hashPassword(newPassword, salt);
 
@@ -92,6 +92,47 @@ export async function updatePassword(
         password: hash,
       },
     });
+  } catch (e) {
+    if (e instanceof Prisma.PrismaClientKnownRequestError) {
+      throw new ErrorException(ErrorCode.PrismaError);
+    }
+    throw new ErrorException(ErrorCode.ServiceError, (e as Error).message);
+  }
+}
+
+export async function checkUsernameTaken(
+  userId: number,
+  username: string
+): Promise<boolean> {
+  return (
+    (await prisma.user.count({
+      where: {
+        username: username,
+        NOT: {
+          id: userId,
+        },
+      },
+    })) === 1
+  );
+}
+
+export async function updateUser(user: UserImpl): Promise<UserImpl> {
+  try {
+    return UserImpl.fromPrisma(
+      await prisma.user.update({
+        where: {
+          id: user.id,
+        },
+        data: {
+          firstName: user.firstName,
+          lastName: user.lastName,
+          username: user.username,
+          dateOfBirth: user.dateOfBirth,
+          gender: user.gender,
+          notiPush: user.notiPush,
+        },
+      })
+    );
   } catch (e) {
     if (e instanceof Prisma.PrismaClientKnownRequestError) {
       throw new ErrorException(ErrorCode.PrismaError);

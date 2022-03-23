@@ -1,17 +1,12 @@
 import { NextFunction, Request, Response } from 'express';
 import { ResponseBody } from '../model/interfaces';
-import {
+import UserImpl, {
   UserLoginReqParams,
   UserRegisterBody,
   UserResetPasswordBody,
+  UserUpdateBody,
 } from '../model/user';
-import {
-  checkDobMatch,
-  checkPasswordMatch,
-  checkUserExists,
-  createUser,
-  updatePassword,
-} from '../services/user.service';
+import * as service from '../services/user.service';
 import { sign } from 'jsonwebtoken';
 
 export async function register(
@@ -24,12 +19,12 @@ export async function register(
   try {
     let input = req.body;
 
-    if (await checkUserExists(input.username)) {
+    if (await service.checkUserExists(input.username)) {
       resBody.message = 'User already exists!';
       return res.status(400).json(resBody);
     }
 
-    const user = await createUser(input);
+    const user = await service.createUser(input);
     if (user) {
       resBody = {
         message: 'User created successfully.',
@@ -55,12 +50,12 @@ export async function login(
   try {
     const input = req.query;
 
-    if (!(await checkUserExists(input.username))) {
+    if (!(await service.checkUserExists(input.username))) {
       resBody.message = 'User does not exist.';
       return res.status(401).json(resBody);
     }
 
-    if (!(await checkPasswordMatch(input))) {
+    if (!(await service.checkPasswordMatch(input))) {
       resBody.message = 'Wrong password.';
       return res.status(401).json(resBody);
     }
@@ -93,14 +88,50 @@ export async function resetPassword(
   try {
     const input = req.body;
 
-    if (!(await checkDobMatch(input.username, new Date(input.dateOfBirth)))) {
+    if (
+      !(await service.checkDobMatch(
+        input.username,
+        new Date(input.dateOfBirth)
+      ))
+    ) {
       resBody.message = 'Username and date of birth does not match.';
       return res.status(401).json(resBody);
     }
 
-    const user = await updatePassword(input.username, input.newPassword);
+    const user = await service.updatePassword(
+      input.username,
+      input.newPassword
+    );
     if (user) {
       resBody.message = 'Reset password successful.';
+      return res.status(200).json(resBody);
+    }
+
+    return res.status(500).json(resBody);
+  } catch (e) {
+    next(e);
+  }
+}
+
+export async function editProfile(
+  req: Request<any, any, UserUpdateBody>,
+  res: Response,
+  next: NextFunction
+) {
+  let resBody: ResponseBody = { message: 'Update user failed.' };
+
+  try {
+    const input = req.body;
+
+    if (await service.checkUsernameTaken(input.id, input.username)) {
+      resBody.message = 'Username is taken.';
+      return res.status(400).json(resBody);
+    }
+
+    const user = await service.updateUser(UserImpl.fromUserUpdateBody(input));
+    if (user) {
+      resBody.message = 'Edit profile successful.';
+      resBody.data = user;
       return res.status(200).json(resBody);
     }
 
