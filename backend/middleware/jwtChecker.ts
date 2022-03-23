@@ -1,11 +1,18 @@
-import { Request, Response, NextFunction } from "express";
-import { verify, sign } from "jsonwebtoken";
-import { ErrorCode } from "../error-handler/error-code";
-import { ErrorException } from "../error-handler/error-exception";
+import { Request, Response, NextFunction } from 'express';
+import { verify, sign } from 'jsonwebtoken';
+import { ErrorCode } from '../error-handler/error-code';
+import { ErrorException } from '../error-handler/error-exception';
 
 function jwtChecker(req: Request, res: Response, next: NextFunction) {
-  const token = <string>req.headers["authorization"];
-  const refreshToken = <string>req.body.refreshToken;
+  let token = <string>req.headers['authorization'];
+
+  if (!token.includes('Bearer ')) {
+    throw new ErrorException(ErrorCode.Unauthenticated, 'Wrong auth schema.');
+  } else {
+    token = token.replace('Bearer ', '');
+  }
+
+  const refreshToken = <string>req.headers['refresh-token'];
   let jwtPayload: any;
 
   try {
@@ -16,7 +23,7 @@ function jwtChecker(req: Request, res: Response, next: NextFunction) {
     } catch (err) {
       throw new ErrorException(
         ErrorCode.Unauthenticated,
-        "Unable to verify token."
+        'Failed to verify token; ' + (err as Error).message
       );
     }
   }
@@ -30,7 +37,7 @@ function jwtChecker(req: Request, res: Response, next: NextFunction) {
     }
   );
 
-  res.setHeader("token", newToken);
+  res.setHeader('token', newToken);
   next();
 }
 

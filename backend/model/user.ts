@@ -55,13 +55,13 @@ export default class User {
 
     switch (gender) {
       case 0:
-        this.gender = "male";
+        this.gender = 'male';
         break;
       case 1:
-        this.gender = "female";
+        this.gender = 'female';
         break;
       default:
-        this.gender = "";
+        this.gender = '';
     }
   }
 }

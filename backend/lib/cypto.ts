@@ -1,4 +1,4 @@
-import { genSalt, hash } from "bcrypt";
+import { genSalt, hash } from 'bcrypt';
 
 export async function generateSalt() {
   return await genSalt(10);

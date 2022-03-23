@@ -1,15 +1,16 @@
-import express, { NextFunction, Request, response, Response } from "express";
-import * as userHandler from "../handlers/user.handler";
+import express, { NextFunction, Request, response, Response } from 'express';
+import * as userHandler from '../handlers/user.handler';
+import jwtChecker from '../middleware/jwtChecker';
 import {
   UserLoginReqParams,
   UserRegisterBody,
   UserResetPasswordBody,
-} from "../model/user";
+} from '../model/user';
 
 const router = express.Router();
 
 router.post(
-  "/",
+  '/',
   (
     req: Request<any, any, UserRegisterBody>,
     res: Response,
@@ -20,7 +21,7 @@ router.post(
 );
 
 router.get(
-  "/login",
+  '/login',
   (
     req: Request<any, any, any, UserLoginReqParams>,
     res: Response,
@@ -31,7 +32,7 @@ router.get(
 );
 
 router.put(
-  "/password",
+  '/password',
   (
     req: Request<any, any, UserResetPasswordBody>,
     res: Response,

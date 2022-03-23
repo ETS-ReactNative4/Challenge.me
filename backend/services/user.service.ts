@@ -1,9 +1,9 @@
-import prisma from "../lib/prisma";
-import { UserLoginReqParams, UserRegisterBody } from "../model/user";
-import { generateSalt, hashPassword } from "../lib/cypto";
-import { Prisma, User } from "@prisma/client";
-import { ErrorException } from "../error-handler/error-exception";
-import { ErrorCode } from "../error-handler/error-code";
+import prisma from '../lib/prisma';
+import { UserLoginReqParams, UserRegisterBody } from '../model/user';
+import { generateSalt, hashPassword } from '../lib/cypto';
+import { Prisma, User } from '@prisma/client';
+import { ErrorException } from '../error-handler/error-exception';
+import { ErrorCode } from '../error-handler/error-code';
 
 export async function checkUserExists(username: string): Promise<boolean> {
   return (await prisma.user.count({ where: { username: username } })) === 1;
