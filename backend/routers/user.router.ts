@@ -6,9 +6,30 @@ import {
   UserRegisterBody,
   UserResetPasswordBody,
   UserUpdateBody,
+  UserUploadPictureBody,
 } from '../model/user';
 
 const router = express.Router();
+
+router.get(
+  '/:id',
+  jwtChecker,
+  (req: Request, res: Response, next: NextFunction) => {
+    userHandler.getUser(req, res, next);
+  }
+);
+
+router.put(
+  '/',
+  jwtChecker,
+  (
+    req: Request<any, any, UserUpdateBody>,
+    res: Response,
+    next: NextFunction
+  ) => {
+    userHandler.editProfile(req, res, next);
+  }
+);
 
 router.post(
   '/',
@@ -44,14 +65,10 @@ router.put(
 );
 
 router.put(
-  '/',
+  '/image',
   jwtChecker,
-  (
-    req: Request<any, any, UserUpdateBody>,
-    res: Response,
-    next: NextFunction
-  ) => {
-    userHandler.editProfile(req, res, next);
+  (req: Request<any, any, UserUploadPictureBody>, res: Response) => {
+    userHandler.uploadProfileImage(req, res);
   }
 );
 

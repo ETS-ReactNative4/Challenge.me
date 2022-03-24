@@ -140,3 +140,17 @@ export async function updateUser(user: UserImpl): Promise<UserImpl> {
     throw new ErrorException(ErrorCode.ServiceError, (e as Error).message);
   }
 }
+
+export async function selectUser(id: number): Promise<UserImpl | undefined> {
+  try {
+    const prismaUser = await prisma.user.findFirst({ where: { id: id } });
+    if (prismaUser === null) return;
+
+    return UserImpl.fromPrisma(prismaUser);
+  } catch (e) {
+    if (e instanceof Prisma.PrismaClientKnownRequestError) {
+      throw new ErrorException(ErrorCode.PrismaError);
+    }
+    throw new ErrorException(ErrorCode.ServiceError, (e as Error).message);
+  }
+}

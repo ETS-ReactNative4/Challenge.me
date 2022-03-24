@@ -20,7 +20,6 @@ model User {
   dateOfBirth       DateTime
   gender            Int                 @default(-1)
   notiPush          Boolean             @default(true)
-  profileImgPath    String              @default("")
   UserAccessibility UserAccessibility[]
   UserChallenge     UserChallenge[]
 }
