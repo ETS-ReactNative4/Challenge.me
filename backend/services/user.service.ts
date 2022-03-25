@@ -143,10 +143,21 @@ export async function updateUser(user: UserImpl): Promise<UserImpl> {
 
 export async function selectUser(id: number): Promise<UserImpl | undefined> {
   try {
-    const prismaUser = await prisma.user.findFirst({ where: { id: id } });
+    const prismaUser = await prisma.user.findFirst({
+      where: { id: id },
+      include: {
+        UserAccessibility: {
+          select: { accessibilityId: true },
+          where: { userId: id },
+        },
+      },
+    });
     if (prismaUser === null) return;
 
-    return UserImpl.fromPrisma(prismaUser);
+    return UserImpl.fromPrisma(
+      prismaUser,
+      prismaUser.UserAccessibility.map((val) => val.accessibilityId)
+    );
   } catch (e) {
     if (e instanceof Prisma.PrismaClientKnownRequestError) {
       throw new ErrorException(ErrorCode.PrismaError);

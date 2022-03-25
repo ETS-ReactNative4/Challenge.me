@@ -11,6 +11,7 @@ export interface User {
   gender: number;
   notiPush: boolean;
   profileImg: string;
+  accessibilityIds: number[];
 }
 
 export default class UserImpl implements User {
@@ -22,17 +23,19 @@ export default class UserImpl implements User {
   gender: number;
   notiPush: boolean;
   profileImg: string;
+  accessibilityIds: number[] = [];
 
-  static fromPrisma(input: UserPrisma): UserImpl {
+  static fromPrisma(u: UserPrisma, accessibilityIds: number[] = []): UserImpl {
     return new this(
-      input.id,
-      input.firstName,
-      input.lastName,
-      input.username,
-      input.dateOfBirth,
-      input.gender,
-      input.notiPush,
-      ''
+      u.id,
+      u.firstName,
+      u.lastName,
+      u.username,
+      u.dateOfBirth,
+      u.gender,
+      u.notiPush,
+      '',
+      accessibilityIds
     );
   }
 
@@ -58,7 +61,8 @@ export default class UserImpl implements User {
     dateOfBirth: Date,
     gender: number,
     notiPush: boolean,
-    profileImg: string = ''
+    profileImg: string = '',
+    accessibilityIds: number[] = []
   ) {
     this.id = id;
     this.firstName = firstName;
@@ -68,6 +72,7 @@ export default class UserImpl implements User {
     this.gender = gender;
     this.notiPush = notiPush;
     this.profileImg = profileImg;
+    this.accessibilityIds = accessibilityIds;
   }
 
   set _setProfileImg(b64: string) {
