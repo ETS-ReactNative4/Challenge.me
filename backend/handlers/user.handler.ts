@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import { ResponseBody } from '../model/interfaces';
 import UserImpl, {
-  UserLoginReqParams,
+  UserLoginQueryParam,
   UserRegisterBody,
   UserResetPasswordBody,
   UserUpdateBody,
@@ -42,7 +42,7 @@ export async function register(
 }
 
 export async function login(
-  req: Request<any, any, any, UserLoginReqParams>,
+  req: Request<any, any, any, UserLoginQueryParam>,
   res: Response,
   next: NextFunction
 ) {
@@ -73,7 +73,10 @@ export async function login(
       { expiresIn: process.env.TOKEN_REFRESH_LIFE }
     );
 
-    return res.status(200).json({ token: token, refreshToken: refreshToken });
+    resBody.message = 'Authentication successful.';
+    resBody.data = { token: token, refreshToken: refreshToken };
+
+    return res.status(200).json(resBody);
   } catch (e) {
     next(e);
   }
@@ -146,7 +149,7 @@ export async function uploadProfileImage(
   req: Request<any, any, UserUploadPictureBody>,
   res: Response
 ) {
-  let resBody: ResponseBody = { message: 'Upload profile image successful.' };
+  const resBody: ResponseBody = { message: 'Upload profile image successful.' };
 
   try {
     const input = req.body;
@@ -163,19 +166,19 @@ export async function getUser(req: Request, res: Response, next: NextFunction) {
   const resBody: ResponseBody = { message: 'User not found.' };
 
   try {
-    if (!req.params.id) {
+    if (!req.query.id) {
       resBody.message = 'User ID required.';
       return res.status(400).json(resBody);
     }
 
-    const input = req.params.id.toString();
-    const user = await service.selectUser(parseInt(input));
+    const userId = req.query.id.toString();
+    const user = await service.selectUser(parseInt(userId));
 
     if (!user) return res.status(400).json(resBody);
 
-    if (existsSync(`${process.env.PATH_PROFILE_Image}${input}.jpg`)) {
+    if (existsSync(`${process.env.PATH_PROFILE_Image}${userId}.jpg`)) {
       const b64 = readFileSync(
-        `${process.env.PATH_PROFILE_Image}${input}.jpg`,
+        `${process.env.PATH_PROFILE_Image}${userId}.jpg`,
         {
           encoding: 'base64',
         }
@@ -183,7 +186,10 @@ export async function getUser(req: Request, res: Response, next: NextFunction) {
       user._setProfileImg = b64;
     }
 
-    return res.status(200).json(user);
+    resBody.message = 'User found.';
+    resBody.data = user;
+
+    return res.status(200).json(resBody);
   } catch (e) {
     next(e);
   }

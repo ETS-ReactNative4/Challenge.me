@@ -1,5 +1,5 @@
 import prisma from '../lib/prisma';
-import UserImpl, { UserLoginReqParams, UserRegisterBody } from '../model/user';
+import UserImpl, { UserLoginQueryParam, UserRegisterBody } from '../model/user';
 import { generateSalt, hashPassword } from '../lib/cypto';
 import { Prisma, User as UserPrisma } from '@prisma/client';
 import { ErrorException } from '../error-handler/error-exception';
@@ -35,7 +35,7 @@ export async function createUser(user: UserRegisterBody): Promise<UserPrisma> {
 }
 
 export async function checkPasswordMatch(
-  cred: UserLoginReqParams
+  cred: UserLoginQueryParam
 ): Promise<boolean> {
   try {
     const user = await prisma.user.findFirst({

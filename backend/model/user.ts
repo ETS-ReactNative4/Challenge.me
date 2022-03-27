@@ -91,7 +91,7 @@ export interface UserRegisterBody {
   accessibilitySettingIds: number[];
 }
 
-export interface UserLoginReqParams {
+export interface UserLoginQueryParam {
   username: string;
   password: string;
 }
