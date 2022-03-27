@@ -35,6 +35,7 @@ model Challenge {
   id                     Int                      @id @default(autoincrement())
   label                  String
   points                 Int
+  createdAt              DateTime                 @default(now())
   ChallengeAccessibility ChallengeAccessibility[]
   UserChallenge          UserChallenge[]
 }

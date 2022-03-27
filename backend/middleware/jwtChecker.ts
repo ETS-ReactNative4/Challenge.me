@@ -6,6 +6,10 @@ import { ErrorException } from '../error-handler/error-exception';
 function jwtChecker(req: Request, res: Response, next: NextFunction) {
   let token = <string>req.headers['authorization'];
 
+  if (!token) {
+    throw new ErrorException(ErrorCode.Unauthenticated, 'Token not found.');
+  }
+
   if (!token.includes('Bearer ')) {
     throw new ErrorException(ErrorCode.Unauthenticated, 'Wrong auth schema.');
   } else {

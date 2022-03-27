@@ -1,5 +1,3 @@
-import { Accessibility } from '@prisma/client';
-
 export const accessibilities = [
   { label: 'test1' },
   { label: 'test2' },

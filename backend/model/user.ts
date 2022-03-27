@@ -23,7 +23,7 @@ export default class UserImpl implements User {
   gender: number;
   notiPush: boolean;
   profileImg: string;
-  accessibilityIds: number[] = [];
+  accessibilityIds: number[];
 
   static fromPrisma(u: UserPrisma, accessibilityIds: number[] = []): UserImpl {
     return new this(
