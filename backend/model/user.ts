@@ -116,3 +116,8 @@ export interface UserUploadPictureBody {
   id: number;
   imageB64: string;
 }
+
+export interface UserMarkChallengeCompletedBody {
+  userId: number;
+  challengeId: number;
+}

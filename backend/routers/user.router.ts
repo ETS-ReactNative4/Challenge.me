@@ -3,6 +3,7 @@ import * as handler from '../handlers/user.handler';
 import jwtChecker from '../middleware/jwtChecker';
 import {
   UserLoginQueryParam,
+  UserMarkChallengeCompletedBody,
   UserRegisterBody,
   UserResetPasswordBody,
   UserUpdateBody,
@@ -69,6 +70,18 @@ router.put(
   jwtChecker,
   (req: Request<any, any, UserUploadPictureBody>, res: Response) => {
     handler.uploadProfileImage(req, res);
+  }
+);
+
+router.put(
+  '/challenge',
+  jwtChecker,
+  (
+    req: Request<any, any, UserMarkChallengeCompletedBody>,
+    res: Response,
+    next: NextFunction
+  ) => {
+    handler.markCompleted(req, res, next);
   }
 );
 

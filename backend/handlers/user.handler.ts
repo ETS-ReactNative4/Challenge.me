@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import { ResponseBody } from '../model/interfaces';
 import UserImpl, {
   UserLoginQueryParam,
+  UserMarkChallengeCompletedBody,
   UserRegisterBody,
   UserResetPasswordBody,
   UserUpdateBody,
@@ -190,6 +191,25 @@ export async function getUser(req: Request, res: Response, next: NextFunction) {
     resBody.data = user;
 
     return res.status(200).json(resBody);
+  } catch (e) {
+    next(e);
+  }
+}
+
+export async function markCompleted(
+  req: Request<any, any, UserMarkChallengeCompletedBody>,
+  res: Response,
+  next: NextFunction
+) {
+  const resBody: ResponseBody = {
+    message: 'Mark challenge completed for user failed.',
+  };
+
+  await service.updateChallengeCompleted(req.body.userId, req.body.challengeId);
+
+  resBody.message = 'Mark challenge completed for user successful.';
+  res.status(200).json(resBody);
+  try {
   } catch (e) {
     next(e);
   }
