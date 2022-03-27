@@ -165,3 +165,27 @@ export async function selectUser(id: number): Promise<UserImpl | undefined> {
     throw new ErrorException(ErrorCode.ServiceError, (e as Error).message);
   }
 }
+
+export async function updateChallengeCompleted(
+  userId: number,
+  challengeId: number
+) {
+  try {
+    await prisma.userChallenge.update({
+      where: {
+        userId_challengeId: {
+          userId: userId,
+          challengeId: challengeId,
+        },
+      },
+      data: {
+        isCompleted: true,
+      },
+    });
+  } catch (e) {
+    if (e instanceof Prisma.PrismaClientKnownRequestError) {
+      throw new ErrorException(ErrorCode.PrismaError);
+    }
+    throw new ErrorException(ErrorCode.ServiceError, (e as Error).message);
+  }
+}
