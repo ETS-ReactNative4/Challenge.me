@@ -155,7 +155,6 @@ export async function uploadProfileImage(
 
     return res.status(200).json(resBody);
   } catch (e) {
-    console.log(e);
     return res.status(500).json(resBody);
   }
 }

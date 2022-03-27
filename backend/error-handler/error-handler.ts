@@ -11,7 +11,9 @@ export const errorHandler: ErrorRequestHandler = (
   console.error('Error occured:', err);
 
   if (err instanceof ErrorException) {
-    res.status(err.status).send(err);
+    res
+      .status(err.status)
+      .send(err.stack?.substring(0, err.stack.indexOf('\n')));
   } else {
     // For unhandled errors.
     res.status(500).send({ message: 'An unknown error occurred.' });

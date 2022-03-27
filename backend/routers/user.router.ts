@@ -1,4 +1,4 @@
-import express, { NextFunction, Request, response, Response } from 'express';
+import express, { NextFunction, Request, Response } from 'express';
 import * as userHandler from '../handlers/user.handler';
 import jwtChecker from '../middleware/jwtChecker';
 import {
@@ -10,14 +10,6 @@ import {
 } from '../model/user';
 
 const router = express.Router();
-
-router.get(
-  '/:id',
-  jwtChecker,
-  (req: Request, res: Response, next: NextFunction) => {
-    userHandler.getUser(req, res, next);
-  }
-);
 
 router.put(
   '/',
@@ -39,6 +31,14 @@ router.post(
     next: NextFunction
   ) => {
     userHandler.register(req, res, next);
+  }
+);
+
+router.get(
+  '/id/:id',
+  jwtChecker,
+  (req: Request, res: Response, next: NextFunction) => {
+    userHandler.getUser(req, res, next);
   }
 );
 

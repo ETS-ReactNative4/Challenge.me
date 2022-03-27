@@ -5,6 +5,8 @@ import 'dotenv';
 import { ResponseBody } from './model/interfaces';
 
 import user from './routers/user.router';
+import accessibility from './routers/accessibility.router';
+import challenge from './routers/challenge.router';
 import { errorHandler } from './error-handler/error-handler';
 
 if (process.env.NODE_ENV === 'production') console.log = () => {};
@@ -23,6 +25,8 @@ app.get('/', async (req: Request, res: Response): Promise<Response> => {
 });
 
 app.use('/user', user);
+app.use('/accessibility', accessibility);
+app.use('/challenge', challenge);
 
 // Error handler must always be at the end of application stack.
 app.use(errorHandler);
