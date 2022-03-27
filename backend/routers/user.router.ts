@@ -1,8 +1,8 @@
 import express, { NextFunction, Request, Response } from 'express';
-import * as userHandler from '../handlers/user.handler';
+import * as handler from '../handlers/user.handler';
 import jwtChecker from '../middleware/jwtChecker';
 import {
-  UserLoginReqParams,
+  UserLoginQueryParam,
   UserRegisterBody,
   UserResetPasswordBody,
   UserUpdateBody,
@@ -10,6 +10,14 @@ import {
 } from '../model/user';
 
 const router = express.Router();
+
+router.get(
+  '/',
+  jwtChecker,
+  (req: Request, res: Response, next: NextFunction) => {
+    handler.getUser(req, res, next);
+  }
+);
 
 router.put(
   '/',
@@ -19,7 +27,7 @@ router.put(
     res: Response,
     next: NextFunction
   ) => {
-    userHandler.editProfile(req, res, next);
+    handler.editProfile(req, res, next);
   }
 );
 
@@ -30,26 +38,18 @@ router.post(
     res: Response,
     next: NextFunction
   ) => {
-    userHandler.register(req, res, next);
-  }
-);
-
-router.get(
-  '/id/:id',
-  jwtChecker,
-  (req: Request, res: Response, next: NextFunction) => {
-    userHandler.getUser(req, res, next);
+    handler.register(req, res, next);
   }
 );
 
 router.get(
   '/login',
   (
-    req: Request<any, any, any, UserLoginReqParams>,
+    req: Request<any, any, any, UserLoginQueryParam>,
     res: Response,
     next: NextFunction
   ) => {
-    userHandler.login(req, res, next);
+    handler.login(req, res, next);
   }
 );
 
@@ -60,7 +60,7 @@ router.put(
     res: Response,
     next: NextFunction
   ) => {
-    userHandler.resetPassword(req, res, next);
+    handler.resetPassword(req, res, next);
   }
 );
 
@@ -68,7 +68,7 @@ router.put(
   '/image',
   jwtChecker,
   (req: Request<any, any, UserUploadPictureBody>, res: Response) => {
-    userHandler.uploadProfileImage(req, res);
+    handler.uploadProfileImage(req, res);
   }
 );
 
