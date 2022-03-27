@@ -12,4 +12,12 @@ router.get(
   }
 );
 
+router.get(
+  '/user',
+  jwtChecker,
+  (req: Request, res: Response, next: NextFunction) => {
+    handler.getUserChallenges(req, res, next);
+  }
+);
+
 export default router;
