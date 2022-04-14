@@ -17,6 +17,75 @@ import {
   } from 'react-native-paper';
   import DropDown from 'react-native-paper-dropdown'; 
 
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#fff',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    logo: {
+        width: 240,
+        height: 240,
+        borderRadius: 250,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    center: {
+        textAlign: 'center',
+    },
+    statement: {
+        textAlign: 'center',
+        fontWeight: 'bold',
+        color: '#163869',
+    },
+    button: {
+        borderStyle: 'solid',
+        borderWidth: 2,
+        backgroundColor: '#265A92',
+        borderColor: '#265A92',
+        boxShadow: "4px 4px 5px lightblue",
+        width: 150,
+    },
+    registerButton: {
+        backgroundColor: '#FFFFFF',
+        borderStyle: 'solid',
+        borderWidth: 2,
+        borderColor: '#265A92',
+        boxShadow: "4px 4px 5px lightblue",
+        width: 150,
+    },
+    inputBox: {
+        backgroundColor: '#FFFFFF',
+        borderStyle: 'solid',
+        borderWidth: 2,
+        borderRadius: 5,
+        borderColor: '#999999',
+        boxShadow: "4px 4px 5px lightblue",
+        marginBottom: 10,
+    },
+    dropdownBox: {
+      backgroundColor: '#FFFFFF',
+      borderStyle: 'solid',
+      borderWidth: 2,
+      borderRadius: 5,
+      borderColor: '#999999',
+      boxShadow: "4px 4px 5px lightblue",
+  },
+  listItem: {
+    backgroundColor: '#FFFFFF',
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderRadius: 5,
+    borderColor: '#999999',
+},
+row: {
+  flex: 1,
+  flexDirection: 'row',
+},
+  });
+
+
   const Register = (props) => {
     const [Fname, setFname] = React.useState("");
     const [Lname, setLname] = React.useState("");
@@ -25,7 +94,7 @@ import {
     const[password, setpass] = React.useState(""); 
     const[DOB, setDOB] = React.useState(""); 
     const[Gender, setGender] = React.useState(""); 
-    const [confirmPass, setCP] = React.useState("");
+    const [confirmPass, setCP] = React.useState("");;
     const GenderList = [
       {
         label: "Male",
@@ -42,50 +111,61 @@ import {
     ];
     
     return (
-        <View>
-        <Title> Register your account </Title>
-        <TextInput 
+        <View style={styles.container}>
+        <Title style = {styles.statement}> CREATE YOUR ACCOUNT </Title>
+        <br></br>
+        <TextInput style={styles.inputBox}
         label = 'First Name'
         value = {Fname}
         onChangeText = {(Fname) => setFname(Fname)}
         />
 
-        <TextInput 
+        <TextInput style={styles.inputBox}
         label = 'Last Name'
         value = {Lname}
         onChangeText = {(Lname) => setLname(Lname)}
         />
 
-        <TextInput 
+        <TextInput style={styles.inputBox}
         label = 'Username'
         value = {username}
         onChangeText = {(username) => setUN(username)}
         />
 
-        <TextInput 
-        label = 'password'
+        <TextInput style={styles.inputBox} secureTextEntry={true}
+        label = 'Password'
         value = {password}
         onChangeText = {(password) => setpass(password)}
         />
-      <TextInput 
-      label = 'confirm password'
+      <TextInput style={styles.inputBox} secureTextEntry={true}
+      label = 'Confirm Password'
       value = {confirmPass}
       onChangeText = {(confirmPass) => setCP(confirmPass)}
       />
+
+    <TextInput style={styles.inputBox}
+      label = 'Date of Birth'
+      value = {DOB}
+      onChangeText = {(DOB) => setDoB(DOB)}
+      />
 {/*       
  This will need to be a dropdown Later on, also work on the submit button and shit  */}
-      <List.Accordion
+      
+      
+      <List.Accordion style={styles.dropdownBox}
       title = "Gender"
       expanded = {showDropDown}
       onPress = {setShowDropDown}
       >
-          <List.Item title = "Male" />
-          <List.Item title = "Female" /> 
-          <List.Item title = "Other" /> 
+          <List.Item style={styles.listItem} title = "Male" />
+          <List.Item style={styles.listItem} title = "Female" /> 
+          <List.Item style={styles.listItem} title = "Other" /> 
 
       </List.Accordion>
 
-    <Button mode = "contained"> Create Account </Button> 
+    <br></br><br></br>
+
+    <Button style = {styles.button} labelStyle = {{fontWeight: 'bold'}} mode = "contained"> NEXT </Button> 
         </View>
     )
   };

@@ -45,7 +45,7 @@ import {
         backgroundColor: '#265A92',
         borderColor: '#265A92',
         boxShadow: "4px 4px 5px lightblue",
-        width: 150,
+        width: 200,
     },
     registerButton: {
         backgroundColor: '#FFFFFF',
@@ -68,17 +68,15 @@ import {
 
   const Login = (props) => {
     const[username, setUN] = React.useState(""); 
+    const[DOB, setDOB] = React.useState("");
     const[password, setpass] = React.useState(""); 
+    const [confirmPass, setCP] = React.useState("");; 
     
     return (
         <View style={styles.container}>
         <br></br>
-        <Image
-            style = {styles.logo}
-            source={{uri: 'https://raw.githubusercontent.com/Zach-Clay/Challenge.me/main/images/logo.jpeg', }}
-        />
         <br></br>
-        <Title style={styles.statement}> WHAT'S NEXT? </Title>
+        <Title style={styles.statement}> FORGOT PASSWORD? </Title>
         <br></br><br></br><br></br><br></br>
         <TextInput style={styles.inputBox}
         label = 'Username'
@@ -86,24 +84,29 @@ import {
         onChangeText = {(username) => setUN(username)}
         />
 
+        <TextInput style={styles.inputBox}
+        label = 'Date of Birth'
+        value = {DOB}
+        onChangeText = {(DOB) => setDOB(DOB)}
+        />
+
         <TextInput style={styles.inputBox} secureTextEntry={true}
-        label = 'Password'
+        label = 'New Password'
         value = {password}
         onChangeText = {(password) => setpass(password)}
         />
+      <TextInput style={styles.inputBox} secureTextEntry={true}
+      label = 'Confirm New Password'
+      value = {confirmPass}
+      onChangeText = {(confirmPass) => setCP(confirmPass)}
+      />
 {/*       
  This will need to be a dropdown Later on, also work on the submit button and shit  */}
     <br></br><br></br>
-    <Button style={styles.button} labelStyle = {{fontWeight: 'bold'}} mode = "contained"> Login </Button>
+    <Button style={styles.button} labelStyle = {{fontWeight: 'bold'}} mode = "contained"> RESET PASSWORD </Button>
     <br></br>
-    <Text style={styles.center}>
-        {"Don't have an account?"}
-    </Text>
-    <Button style = {styles.registerButton} labelStyle = {{color: "#265A92", fontWeight: 'bold'}} mode = "contained"> Register </Button> 
+    <Button style = {styles.registerButton} labelStyle = {{color: "#265A92", fontWeight: 'bold'}} mode = "contained"> BACK </Button> 
     <br></br>
-    <Text style={{color:"blue", textAlign:"center"}}>
-        {"Forgot your Password?"}
-    </Text>
     <br></br><br></br><br></br><br></br>
     </View>
     )

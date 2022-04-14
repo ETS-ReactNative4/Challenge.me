@@ -64,9 +64,10 @@ const Accessibility = () => {
         <Text style={styles.label}>Do you have access to a car?</Text>
       </View>
 
-      <View styles={styles.centerView}>
-        <Button style = {styles.button} mode="contained" onPress={updateAccessibility}>Update</Button>
-      </View>
+    <View style={styles.row}>
+    <Button style = {styles.button} mode="contained" onPress={updateAccessibility}>Back</Button>
+    <Button style = {styles.finishButton} mode="contained" onPress={updateAccessibility}>Finish</Button>
+    </View>
       
 
     </View>
@@ -100,6 +101,14 @@ const styles = StyleSheet.create({
     borderColor: '#265A92',
     boxShadow: "4px 4px 5px lightblue",
     width: 150,
+  },
+  finishButton: {
+    borderStyle: 'solid',
+    borderWidth: 2,
+    backgroundColor: '#26925E',
+    borderColor: '#26925E',
+    boxShadow: "4px 4px 5px lightblue",
+    width: 150,
     left: 100,
   },
   statement: {
@@ -112,6 +121,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  row: {
+      flex: 1,
+      flexDirection: 'row',
   }
 });
 
