@@ -66,9 +66,29 @@ import {
     }
   });
 
-  const Login = (props) => {
+  const Login = ({navigation}) => {
     const[username, setUN] = React.useState(""); 
     const[password, setpass] = React.useState(""); 
+
+    const loginFunction = () => {
+        console.log("Login Pressed");
+
+        // AXOIS CALL TO AUTHENTICATE THE USER
+        //Authenticate before moving to next page
+
+        //Move to home page
+        navigation.navigate("Home");
+    }
+
+    const registerFunction = () => {
+        //Move to register page
+        navigation.navigate("Register");
+    }
+
+    const forgotPasswordFunction = () => {
+        //Move to forgot password page
+        navigation.navigate("ForgotPassword");
+    }
     
     return (
         <View style={styles.container}>
@@ -94,14 +114,15 @@ import {
 {/*       
  This will need to be a dropdown Later on, also work on the submit button and shit  */}
     <br></br><br></br>
-    <Button style={styles.button} labelStyle = {{fontWeight: 'bold'}} mode = "contained"> Login </Button>
+    <Button style={styles.button} labelStyle = {{fontWeight: 'bold'}} mode = "contained" onPress={loginFunction}> Login </Button>
     <br></br>
+   
     <Text style={styles.center}>
         {"Don't have an account?"}
     </Text>
-    <Button style = {styles.registerButton} labelStyle = {{color: "#265A92", fontWeight: 'bold'}} mode = "contained"> Register </Button> 
+    <Button style = {styles.registerButton} labelStyle = {{color: "#265A92", fontWeight: 'bold'}} mode = "contained" onPress={registerFunction}> Register </Button> 
     <br></br>
-    <Text style={{color:"blue", textAlign:"center"}}>
+    <Text style={{color:"blue", textAlign:"center"}} onPress={forgotPasswordFunction}>
         {"Forgot your Password?"}
     </Text>
     <br></br><br></br><br></br><br></br>

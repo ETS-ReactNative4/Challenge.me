@@ -15,7 +15,7 @@ import {
 //API Client
 import axios from "axios";
 
-const Accessibility = () => {
+const Accessibility = ({navigation}) => {
   const [isSelected1, setSelection1] = useState(false);
   const [isSelected2, setSelection2] = useState(false);
   const [isSelected3, setSelection3] = useState(false);
@@ -26,7 +26,10 @@ const Accessibility = () => {
     console.log('Box 3: ', isSelected3);
 
     //POST TO THE BACKEND WITH AXIOS
-    
+
+
+    //Move to homescreen
+    navigation.navigate("Home");
   }
 
   return (
@@ -65,7 +68,7 @@ const Accessibility = () => {
       </View>
 
       <View styles={styles.centerView}>
-        <Button style = {styles.button} mode="contained" onPress={updateAccessibility}>Update</Button>
+        <Button style = {styles.button} mode="contained" onPress={updateAccessibility}>Finish</Button>
       </View>
       
 

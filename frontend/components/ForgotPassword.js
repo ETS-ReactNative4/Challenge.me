@@ -66,11 +66,18 @@ import {
     }
   });
 
-  const Login = (props) => {
+  const Login = ({navigation}) => {
     const[username, setUN] = React.useState(""); 
     const[DOB, setDOB] = React.useState("");
     const[password, setpass] = React.useState(""); 
-    const [confirmPass, setCP] = React.useState("");; 
+    const [confirmPass, setCP] = React.useState("");
+
+    const resetPasswordFunction = () => {
+      //AXIOS CALL
+
+      //Move back to login page
+      navigation.navigate("Login");
+    }
     
     return (
         <View style={styles.container}>
@@ -103,9 +110,9 @@ import {
 {/*       
  This will need to be a dropdown Later on, also work on the submit button and shit  */}
     <br></br><br></br>
-    <Button style={styles.button} labelStyle = {{fontWeight: 'bold'}} mode = "contained"> RESET PASSWORD </Button>
+    <Button style={styles.button} labelStyle = {{fontWeight: 'bold'}} mode = "contained" onPress={resetPasswordFunction}> RESET PASSWORD </Button>
     <br></br>
-    <Button style = {styles.registerButton} labelStyle = {{color: "#265A92", fontWeight: 'bold'}} mode = "contained"> BACK </Button> 
+    <Button style = {styles.registerButton} labelStyle = {{color: "#265A92", fontWeight: 'bold'}} mode = "contained" onPress={() => navigation.navigate("Login")}> BACK </Button> 
     <br></br>
     <br></br><br></br><br></br><br></br>
     </View>

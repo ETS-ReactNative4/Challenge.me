@@ -15,7 +15,6 @@ import {
     Button,
     List,
   } from 'react-native-paper';
-  import DropDown from 'react-native-paper-dropdown'; 
 
   const styles = StyleSheet.create({
     container: {
@@ -86,7 +85,7 @@ row: {
   });
 
 
-  const Register = (props) => {
+  const Register = ({navigation}) => {
     const [Fname, setFname] = React.useState("");
     const [Lname, setLname] = React.useState("");
     const [showDropDown, setShowDropDown] = React.useState(false);
@@ -109,6 +108,13 @@ row: {
         value: 2
       },
     ];
+
+    const nextFunction = () => {
+      //AXIOS CALL TO POST INFO
+      //Authenticate before navigating to next page
+      //Move to accessibility page
+      navigation.navigate("Accessibility");
+    }
     
     return (
         <View style={styles.container}>
@@ -165,8 +171,9 @@ row: {
 
     <br></br><br></br>
 
-    <Button style = {styles.button} labelStyle = {{fontWeight: 'bold'}} mode = "contained"> NEXT </Button> 
-        </View>
+    <Button style = {styles.button} labelStyle = {{fontWeight: 'bold'}} mode = "contained" onPress={nextFunction}> NEXT </Button> 
+    
+    </View>
     )
   };
 export default Register; 
