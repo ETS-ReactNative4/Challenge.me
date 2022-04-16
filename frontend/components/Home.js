@@ -35,6 +35,12 @@ import {
     }
   });
 
+import axios from 'axios';
+
+const api = axios.create({
+  baseURL: 'http://localhost:25484'
+})
+
   const Login = (props) => {
     const[username, setUN] = React.useState(""); 
     const[password, setpass] = React.useState(""); 

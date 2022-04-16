@@ -84,6 +84,10 @@ row: {
 },
   });
 
+import axios from 'axios';
+const api = axios.create({
+  baseURL: 'http://localhost:25484'
+})
 
   const Register = ({navigation}) => {
     const [Fname, setFname] = React.useState("");
@@ -110,10 +114,29 @@ row: {
     ];
 
     const nextFunction = () => {
+      //Data from form
+      const data = { 
+        firstName:  Fname,
+        lastName: Lname,
+        username: username,
+        password: password,
+        dateOfBirth: DOB,
+        gender: Gender,
+        accessibilitySettingsIds: [],
+      }
+
+      const sendRequest = async () => {
+        try {
+          const res = await api.post('http://localhost:25484/user', data);
+          console.log(res.data);
+          //Move to next page
+          navigation.navigate("Accessibility");
+        } catch (e) {
+          alert(e);
+        }
+      }
       //AXIOS CALL TO POST INFO
-      //Authenticate before navigating to next page
-      //Move to accessibility page
-      navigation.navigate("Accessibility");
+      sendRequest(); 
     }
     
     return (

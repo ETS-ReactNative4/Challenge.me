@@ -17,6 +17,11 @@ import {
     List,
   } from 'react-native-paper';
 
+  import axios from 'axios';
+  const api = axios.create({
+    baseURL: 'http://localhost:25484'
+  })
+
   const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -74,7 +79,6 @@ import {
         console.log("Login Pressed");
 
         // AXOIS CALL TO AUTHENTICATE THE USER
-        //Authenticate before moving to next page
 
         //Move to home page
         navigation.navigate("Home");
