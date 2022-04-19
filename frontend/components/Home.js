@@ -221,22 +221,22 @@ const api = axios.create({
         <Text style = {styles.taskItem}>
           <Checkbox></Checkbox>
           Run a mile
-          <strong style={{fontSize: 25, position: 'relative', left: '40%', color: "#265A92"}}>100</strong>
+          <strong style={{fontSize: 25, position: 'absolute', left: '57%', color: "#265A92"}}>100</strong>
         </Text>
         <Text style = {styles.taskItem}>
           <Checkbox></Checkbox>
-          Run a mile
-          <strong style={{fontSize: 25, position: 'relative', left: '40%', color: "#265A92"}}>100</strong>
+          Try a new recipe
+          <strong style={{fontSize: 25, position: 'absolute', left: '57%', color: "#265A92"}}>100</strong>
         </Text>
         <Text style = {styles.taskItem}>
           <Checkbox></Checkbox>
-          Run a mile
-          <strong style={{fontSize: 25, position: 'relative', left: '40%', color: "#265A92"}}>100</strong>
+          Hit the gym 3 times
+          <strong style={{fontSize: 25, position: 'absolute', left: '57%', color: "#265A92"}}>100</strong>
         </Text>
         <Text style = {styles.taskItem}>
           <Checkbox></Checkbox>
-          Run a mile
-          <strong style={{fontSize: 25, position: 'relative', left: '40%', color: "#265A92"}}>100</strong>
+          Work on the yard
+          <strong style={{fontSize: 25, position: 'absolute', left: '57%', color: "#265A92"}}>100</strong>
         </Text>
 
 
