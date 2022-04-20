@@ -114,6 +114,19 @@ const api = axios.create({
         username: username,
         password: password,
         gender: Gender,
+        accessibilitySettingsIds: [],
+      }
+      navigation.navigate("AccessibilityCreation");
+    }
+
+    const Register = () => {
+      const data = { 
+        firstName:  Fname,
+        lastName: Lname,
+        username: username,
+        password: password,
+        dateOfBirth: DOB,
+        gender: Gender,
       }
 
       axios.post('http://localhost:3000/user', { data })
