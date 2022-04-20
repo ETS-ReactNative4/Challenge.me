@@ -119,10 +119,9 @@ const api = axios.create({
         accessibilitySettingsIds: [],
         
       }
-      
-
       navigation.navigate("AccessibilityCreation");
     }
+
     const Register = () => {
       const data = { 
         firstName:  Fname,
@@ -131,18 +130,14 @@ const api = axios.create({
         password: password,
         dateOfBirth: DOB,
         gender: Gender,
-        accessibilitySettingsIds: [],
       }
-      if(data.password != confirmPass){
-        err
-      }
+      axios.post(`https://jsonplaceholder.typicode.com/users`, { data })
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
     }
-    const areThingsNull = () => {
-      return(
-        firstname === '' && lastname === '' && username === '' && password === '' && Gender === ''
-      ) 
-    }
-    
+
     return (
         <View style={styles.container}>
         <Title style = {styles.statement}> CREATE YOUR ACCOUNT </Title>
