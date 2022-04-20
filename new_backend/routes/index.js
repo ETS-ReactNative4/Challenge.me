@@ -4,6 +4,7 @@ const mysql = require('mysql');
 var cors = require('cors');
 const app = express();
 app.use(cors());
+app.use(express.json());
 const port = 3000; 
 
 /* GET home page. */

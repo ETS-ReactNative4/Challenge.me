@@ -1,4 +1,5 @@
 import React from 'react';
+import qs from 'qs';
 import {
     SafeAreaView,
     ScrollView,
@@ -76,12 +77,22 @@ import {
     const[password, setpass] = React.useState(""); 
 
     const loginFunction = () => {
-        console.log("Login Pressed");
+        const data = { 
+            username: username,
+            password_hash: password,
+        }
 
         // AXOIS CALL TO AUTHENTICATE THE USER
-
-        //Move to home page
-        navigation.navigate("Home");
+        axios.get(`http://localhost:3000/user?username=${username}&password_hash=${password}`)
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+                //navigate to Login Page
+                navigation.navigate("Home");
+            })
+            .catch(err => {
+            console.error(err);
+        });
     }
 
     const registerFunction = () => {

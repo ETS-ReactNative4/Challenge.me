@@ -106,17 +106,19 @@ const api = axios.create({
     const handleChange = (event) => {
       setGender(event.target.value);
     };
+    const points = React.useState(0);
 
     const registerButton = () => {
       const data = { 
+        points: 0,
         first_name:  Fname,
         last_name: Lname,
         username: username,
-        password: password,
+        password_hash: password,
         gender: Gender,
       }
 
-      axios.post('http://localhost:3000/user', { data })
+      axios.post(`http://localhost:3000/user?first_name=${Fname}&username=${username}&last_name=${Lname}&password_hash${password}&points=${points}&gender=${Gender}`)
         .then(res => {
           console.log(res);
           console.log(res.data);
@@ -126,7 +128,7 @@ const api = axios.create({
         .catch(err => {
           console.error(err);
         });
-    }
+      }
 
     return (
         <View style={styles.container}>
