@@ -109,23 +109,10 @@ const api = axios.create({
 
     const registerButton = () => {
       const data = { 
-        firstName:  Fname,
-        lastName: Lname,
+        first_name:  Fname,
+        last_name: Lname,
         username: username,
         password: password,
-        gender: Gender,
-        accessibilitySettingsIds: [],
-      }
-      navigation.navigate("AccessibilityCreation");
-    }
-
-    const Register = () => {
-      const data = { 
-        firstName:  Fname,
-        lastName: Lname,
-        username: username,
-        password: password,
-        dateOfBirth: DOB,
         gender: Gender,
       }
 
@@ -133,11 +120,12 @@ const api = axios.create({
         .then(res => {
           console.log(res);
           console.log(res.data);
+          //navigate to Login Page
+          navigation.navigate("Login");
         })
         .catch(err => {
           console.error(err);
         });
-
     }
 
     return (
