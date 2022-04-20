@@ -125,18 +125,7 @@ const api = axios.create({
         accessibilitySettingsIds: [],
       }
 
-      const sendRequest = async () => {
-        try {
-          const res = await api.post('http://localhost:25484/user', data);
-          console.log(res.data);
-          //Move to next page
-          navigation.navigate("Accessibility");
-        } catch (e) {
-          alert(e);
-        }
-      }
-      //AXIOS CALL TO POST INFO
-      sendRequest(); 
+      navigation.navigate("AccessibilityCreation");
     }
     
     return (
