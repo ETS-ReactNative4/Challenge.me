@@ -30,16 +30,16 @@ import {
     history: {
       width: 50,
       height: 50,
-      position: 'absolute',
-      bottom: '3.5%',
-      left: '48.5%',
+      //position: 'absolute',
+      //bottom: '6.5%',
+      //left: '20%',
     },
     flag1: {
       width: 60,
       height: 60,
       borderRadius: 50,
       position: 'absolute',
-      left: '43%',
+      left: '35%',
       bottom: '76%',
     },
     flag2: {
@@ -47,7 +47,7 @@ import {
       height: 60,
       borderRadius: 50,
       position: 'absolute',
-      left: '48.5%',
+      left: '48%',
       bottom: '76%',
     },
     flag3: {
@@ -55,15 +55,29 @@ import {
       height: 60,
       borderRadius: 50,
       position: 'absolute',
-      left: '54%',
+      left: '58%',
       bottom: '76%',
     },
     user: {
         width: 50,
         height: 50,
-        position: 'absolute',
-        bottom: '3.5%',
-        left: '55.5%',
+        //position: 'absolute',
+        //bottom: '0%',
+        //left: '50%',
+    },
+    userBox: {
+      flex: 1,
+      flexDirection: 'row',
+      //position: 'absolute',
+      //bottom: '-60%',
+      //left: '50%',
+    },
+    historyBox: {
+      flex: 1,
+      flexDirection: 'row',
+      //position: 'absolute',
+      //bottom: '0%',
+      //left: '20%',
     },
     container: {
       flex: 1,
@@ -132,24 +146,24 @@ import {
   },
   progressBar: {
     position: 'absolute',
-    left: '40%',
+    left: '30%',
     bottom: '75%',
     borderStyle: 'solid',
     borderWidth: 2,
     borderRadius: 15,
     borderColor: '#265A92',
-    width: '20%',
+    width: '40%',
     paddingTop: 20,
   },
   barFill: {
     position: 'absolute',
-    left: '40%',
+    left: '30%',
     bottom: '75%',
     borderStyle: 'solid',
     borderWidth: 12,
     borderRadius: 15,
     borderColor: '#265A92',
-    width: '11%',
+    width: '22%',
     paddingTop: 0,  
   },
   taskItem: {
@@ -163,15 +177,18 @@ import {
     fontSize: 30,
     paddingTop: 10,
     paddingBottom: 12,
-    width: '20%'
+    width: '60%'
   },
   hudBar: {
     backgroundColor: "#999999",
     paddingTop: 62,
     position: 'absolute',
-    bottom: '2.9%',
-    left: '40%',
-    width: '20%',
+    bottom: '6%',
+    left: '35%',
+    width: '25%',
+  },
+  bottomBar: {
+    flexDirection: 'row',
   },
 });
 
@@ -186,6 +203,11 @@ const api = axios.create({
     const[username, setUN] = React.useState(""); 
     const[password, setpass] = React.useState(""); 
     const tasks = ['one', 'two', 'three', 'four'];
+
+    const profileFunction = () => {
+      navigation.navigate("Profile");
+    }
+
     
     return (
         <View style = {styles.container}>
@@ -221,46 +243,41 @@ const api = axios.create({
         <Text style = {styles.taskItem}>
           <Checkbox></Checkbox>
           Run a mile
-          <strong style={{fontSize: 25, position: 'absolute', left: '57%', color: "#265A92"}}>100</strong>
+          <strong style={{fontSize: 25, position: 'absolute', left: '70%', color: "#265A92"}}>100</strong>
         </Text>
         <Text style = {styles.taskItem}>
           <Checkbox></Checkbox>
           Try a new recipe
-          <strong style={{fontSize: 25, position: 'absolute', left: '57%', color: "#265A92"}}>100</strong>
+          <strong style={{fontSize: 25, position: 'absolute', left: '70%', color: "#265A92"}}>100</strong>
         </Text>
         <Text style = {styles.taskItem}>
           <Checkbox></Checkbox>
           Hit the gym 3 times
-          <strong style={{fontSize: 25, position: 'absolute', left: '57%', color: "#265A92"}}>100</strong>
+          <strong style={{fontSize: 25, position: 'absolute', left: '70%', color: "#265A92"}}>100</strong>
         </Text>
         <Text style = {styles.taskItem}>
           <Checkbox></Checkbox>
           Work on the yard
-          <strong style={{fontSize: 25, position: 'absolute', left: '57%', color: "#265A92"}}>100</strong>
+          <strong style={{fontSize: 25, position: 'absolute', left: '70%', color: "#265A92"}}>100</strong>
         </Text>
 
+        <br></br><br></br>
 
-        <Text style = {styles.hudBar}></Text>
-
-        <Image
-            style = {styles.logo}
-            source={{uri: 'https://raw.githubusercontent.com/Zach-Clay/Challenge.me/main/images/logo.jpeg', }}
-        />
-
-        <TouchableHighlight 
-          //style = {styles.user}
-          onPress = {() => navigation.navigate("Profile")}
-        >
-        <Image
-            style = {styles.user}
-            source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/User_font_awesome.svg/1024px-User_font_awesome.svg.png', }}
-        />
+        <View style={styles.bottomBar}>
+        <TouchableHighlight onPress={profileFunction}>
+          <Image
+              style = {styles.user}
+              source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/User_font_awesome.svg/1024px-User_font_awesome.svg.png', }}
+          />
         </TouchableHighlight>
 
+        <TouchableHighlight>
         <Image
             style = {styles.history}
             source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Font_Awesome_5_solid_history.svg/1200px-Font_Awesome_5_solid_history.svg.png', }}
         />
+        </TouchableHighlight>
+        </View>
         
         </View>
     )
