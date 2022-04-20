@@ -15,7 +15,10 @@ const con = mysql.createConnection({
   password: "challenge.me"
 });
 
-/* User API's */ 
+/* User API's 
+1. Register a new user 
+2. Get User information (login)
+*/ 
 app.post('/user', (req, res) => {
   if (req.query.first_name && req.query.username && req.query.last_name) {
       console.log('Request received');

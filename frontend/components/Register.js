@@ -15,6 +15,13 @@ import {
     Button,
     List,
   } from 'react-native-paper';
+  import {
+    Box,
+    InputLabel,
+    MenuItem,
+    FormControl,
+    Select,
+  } from '@mui/material';
 
   const styles = StyleSheet.create({
     container: {
@@ -92,26 +99,13 @@ const api = axios.create({
   const Register = ({navigation}) => {
     const [Fname, setFname] = React.useState("");
     const [Lname, setLname] = React.useState("");
-    const [showDropDown, setShowDropDown] = React.useState(false);
     const[username, setUN] = React.useState(""); 
     const[password, setpass] = React.useState(""); 
-    const[DOB, setDOB] = React.useState(""); 
     const[Gender, setGender] = React.useState(""); 
     const [confirmPass, setCP] = React.useState("");;
-    const GenderList = [
-      {
-        label: "Male",
-        value: 0
-      },
-      {
-        label: "Female",
-        value: 1
-      }, 
-      {
-        label: "Other",
-        value: 2
-      },
-    ];
+    const handleChange = (event) => {
+      setGender(event.target.value);
+    };
 
     const nextFunction = () => {
       //Data from form
@@ -123,7 +117,9 @@ const api = axios.create({
         dateOfBirth: DOB,
         gender: Gender,
         accessibilitySettingsIds: [],
+        
       }
+      
 
       const sendRequest = async () => {
         try {
@@ -137,6 +133,25 @@ const api = axios.create({
       }
       //AXIOS CALL TO POST INFO
       sendRequest(); 
+    }
+    const Register = () => {
+      const data = { 
+        firstName:  Fname,
+        lastName: Lname,
+        username: username,
+        password: password,
+        dateOfBirth: DOB,
+        gender: Gender,
+        accessibilitySettingsIds: [],
+      }
+      if(data.password != confirmPass){
+        err
+      }
+    }
+    const areThingsNull = () => {
+      return(
+        firstname === '' && lastname === '' && username === '' && password === '' && Gender === ''
+      ) 
     }
     
     return (
@@ -175,21 +190,23 @@ const api = axios.create({
 {/*       
  This will need to be a dropdown Later on, also work on the submit button and shit  */}
       
-      
-      <List.Accordion style={styles.dropdownBox}
-      title = "Gender"
-      expanded = {showDropDown}
-      onPress = {setShowDropDown}
-      >
-          <List.Item style={styles.listItem} title = "Male" />
-          <List.Item style={styles.listItem} title = "Female" /> 
-          <List.Item style={styles.listItem} title = "Other" /> 
-
-      </List.Accordion>
-
+      <Box sx={{ minWidth: 120 }}>
+      <FormControl fullWidth>
+        <InputLabel>Gender</InputLabel>
+        <Select
+          value={Gender}
+          label="Gender"
+          onChange={handleChange}
+        >
+          <MenuItem value={10}>Male</MenuItem>
+          <MenuItem value={20}>Female</MenuItem>
+          <MenuItem value={30}>Non-Binary</MenuItem>
+        </Select>
+      </FormControl>
+    </Box>
     <br></br><br></br>
 
-    <Button style = {styles.button} labelStyle = {{fontWeight: 'bold'}} mode = "contained" onPress={nextFunction}> NEXT </Button> 
+    <Button style = {styles.button} labelStyle = {{fontWeight: 'bold'}} disabled = {password == confirmPass? false:true }mode = "contained" onPress={nextFunction}> REGISTER </Button> 
     
     </View>
     )
