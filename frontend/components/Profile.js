@@ -66,6 +66,14 @@ const styles = StyleSheet.create({
         boxShadow: "4px 4px 5px lightblue",
         width: 150,
     },
+    logoutButton: {
+        backgroundColor: '#FFFFFF',
+        borderStyle: 'solid',
+        borderWidth: 2,
+        borderColor: 'red',
+        boxShadow: "4px 4px 5px lightblue",
+        width: 150,
+    },
 });
 
 const Profile = ({navigation}) => {
@@ -133,9 +141,11 @@ const Profile = ({navigation}) => {
             <Button style = {styles.registerButton} labelStyle = {{color: "#265A92", fontWeight: 'bold'}} mode = "contained" onPress={() => navigation.navigate("Accessibility")}>Accessibility</Button> 
             <br></br>
             <Button style={styles.button} labelStyle = {{fontWeight: 'bold'}} mode = "contained" onPress={updateSettings}> Save </Button>
+            <br></br>
+            <Button style = {styles.logoutButton} labelStyle = {{color: "red", fontWeight: 'bold'}} mode = "contained" onPress={() => navigation.navigate("Login")}>Logout</Button> 
 
         </View>
     )
 };
-  
+
 export default Profile;

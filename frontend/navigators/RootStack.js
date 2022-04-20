@@ -11,7 +11,7 @@ import ForgotPassword from './../components/ForgotPassword';
 import Login from './../components/Login.js';
 import Home from './../components/Home.js';
 import Profile from './../components/Profile.js'
-import AccessibilityCreation from './../components/AccessibilityCreation.js'
+import History from './../components/History.js'
 
 const Stack = createStackNavigator();
 
@@ -37,7 +37,7 @@ const RootStack = () => {
                 <Stack.Screen name="ForgotPassword" component={ForgotPassword}/>
                 <Stack.Screen name="Home" component={Home}/>
                 <Stack.Screen name="Profile" component={Profile}/>
-                <Stack.Screen name="AccessibilityCreation" component={AccessibilityCreation}/>
+                <Stack.Screen name="History" component={History}/>
             </Stack.Navigator>
         </NavigationContainer>
     );

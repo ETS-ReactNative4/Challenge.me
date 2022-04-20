@@ -107,8 +107,7 @@ const api = axios.create({
       setGender(event.target.value);
     };
 
-    const nextFunction = () => {
-      //Data from form
+    const registerButton = () => {
       const data = { 
         firstName:  Fname,
         lastName: Lname,
@@ -117,8 +116,8 @@ const api = axios.create({
         dateOfBirth: DOB,
         gender: Gender,
         accessibilitySettingsIds: [],
-        
       }
+<<<<<<< HEAD
       navigation.navigate("AccessibilityCreation");
     }
 
@@ -136,6 +135,20 @@ const api = axios.create({
         console.log(res);
         console.log(res.data);
       })
+=======
+      
+      if(data.password != confirmPass){
+        err
+      }
+
+      navigation.navigate("Login");
+    }
+
+    const areThingsNull = () => {
+      return(
+        firstname === '' && lastname === '' && username === '' && password === '' && Gender === ''
+      ) 
+>>>>>>> c0733d253b9519129e56cc97e03751e394a701a7
     }
 
     return (
@@ -190,7 +203,7 @@ const api = axios.create({
     </Box>
     <br></br><br></br>
 
-    <Button style = {styles.button} labelStyle = {{fontWeight: 'bold'}} disabled = {password == confirmPass? false:true }mode = "contained" onPress={nextFunction}> REGISTER </Button> 
+    <Button style = {styles.button} labelStyle = {{fontWeight: 'bold'}} disabled = {password == confirmPass? false:true }mode = "contained" onPress={registerButton}> REGISTER </Button> 
     
     </View>
     )
