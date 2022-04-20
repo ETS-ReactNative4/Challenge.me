@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
 const mysql = require('mysql');
+var cors = require('cors');
 const app = express();
+app.use(cors());
 const port = 3000; 
 
 /* GET home page. */

@@ -113,15 +113,18 @@ const api = axios.create({
         lastName: Lname,
         username: username,
         password: password,
-        dateOfBirth: DOB,
         gender: Gender,
       }
-      
-      axios.post(`https://jsonplaceholder.typicode.com/users`, { data })
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-      })
+
+      axios.post('http://localhost:3000/user', { data })
+        .then(res => {
+          console.log(res);
+          console.log(res.data);
+        })
+        .catch(err => {
+          console.error(err);
+        });
+
     }
 
     return (
