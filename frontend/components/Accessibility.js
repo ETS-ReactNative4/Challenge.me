@@ -29,7 +29,7 @@ const Accessibility = ({navigation}) => {
 
 
     //Move to homescreen
-    navigation.navigate("Home");
+    navigation.navigate("Profile");
   }
 
   return (
@@ -70,7 +70,6 @@ const Accessibility = ({navigation}) => {
       <View styles={styles.centerView}>
         <Button style = {styles.button} mode="contained" onPress={updateAccessibility}>Finish</Button>
       </View>
-      
 
     </View>
   );
@@ -79,7 +78,6 @@ const Accessibility = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'left',
     justifyContent: 'center',
   },
@@ -87,6 +85,9 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   checkboxContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
     flexDirection: "row",
     marginBottom: 20,
   },
@@ -97,22 +98,23 @@ const styles = StyleSheet.create({
     margin: 8,
   },
   button: {
+    alignSelf: 'center',
     borderStyle: 'solid',
     borderWidth: 2,
     backgroundColor: '#265A92',
     borderColor: '#265A92',
     boxShadow: "4px 4px 5px lightblue",
     width: 150,
-    left: 100,
+    flex: 1,
   },
   statement: {
+    marginTop: 30,
     textAlign: 'center',
     fontWeight: 'bold',
     color: '#163869',
 },
   centerView: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   }

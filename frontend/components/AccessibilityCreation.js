@@ -15,7 +15,7 @@ import {
 //API Client
 import axios from "axios";
 
-const Accessibility = () => {
+const AccessibilityCreation = ({navigation}) => {
   const [isSelected1, setSelection1] = useState(false);
   const [isSelected2, setSelection2] = useState(false);
   const [isSelected3, setSelection3] = useState(false);
@@ -26,7 +26,10 @@ const Accessibility = () => {
     console.log('Box 3: ', isSelected3);
 
     //POST TO THE BACKEND WITH AXIOS
-    
+
+
+    //Move to homescreen
+    navigation.navigate("Login");
   }
 
   return (
@@ -64,11 +67,9 @@ const Accessibility = () => {
         <Text style={styles.label}>Do you have access to a car?</Text>
       </View>
 
-    <View style={styles.row}>
-    <Button style = {styles.button} mode="contained" onPress={updateAccessibility}>Back</Button>
-    <Button style = {styles.finishButton} mode="contained" onPress={updateAccessibility}>Finish</Button>
-    </View>
-      
+      <View styles={styles.centerView}>
+        <Button style = {styles.button} mode="contained" onPress={updateAccessibility}>Finish</Button>
+      </View>
 
     </View>
   );
@@ -77,7 +78,6 @@ const Accessibility = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'left',
     justifyContent: 'center',
   },
@@ -85,6 +85,9 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   checkboxContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
     flexDirection: "row",
     marginBottom: 20,
   },
@@ -95,37 +98,26 @@ const styles = StyleSheet.create({
     margin: 8,
   },
   button: {
+    alignSelf: 'center',
     borderStyle: 'solid',
     borderWidth: 2,
     backgroundColor: '#265A92',
     borderColor: '#265A92',
     boxShadow: "4px 4px 5px lightblue",
     width: 150,
-  },
-  finishButton: {
-    borderStyle: 'solid',
-    borderWidth: 2,
-    backgroundColor: '#26925E',
-    borderColor: '#26925E',
-    boxShadow: "4px 4px 5px lightblue",
-    width: 150,
-    left: 100,
+    flex: 1,
   },
   statement: {
+    marginTop: 30,
     textAlign: 'center',
     fontWeight: 'bold',
     color: '#163869',
 },
   centerView: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  row: {
-      flex: 1,
-      flexDirection: 'row',
   }
 });
 
-export default Accessibility;
+export default AccessibilityCreation;

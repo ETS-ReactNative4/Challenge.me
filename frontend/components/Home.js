@@ -176,13 +176,13 @@ import {
 });
 
 import axios from 'axios';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { TouchableHighlight, TouchableOpacity } from 'react-native-gesture-handler';
 
 const api = axios.create({
   baseURL: 'http://localhost:25484'
 })
 
-  const Login = (props) => {
+  const Login = ({navigation}) => {
     const[username, setUN] = React.useState(""); 
     const[password, setpass] = React.useState(""); 
     const tasks = ['one', 'two', 'three', 'four'];
@@ -247,15 +247,21 @@ const api = axios.create({
             source={{uri: 'https://raw.githubusercontent.com/Zach-Clay/Challenge.me/main/images/logo.jpeg', }}
         />
 
+        <TouchableHighlight 
+          //style = {styles.user}
+          onPress = {() => navigation.navigate("Profile")}
+        >
         <Image
             style = {styles.user}
             source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/User_font_awesome.svg/1024px-User_font_awesome.svg.png', }}
         />
+        </TouchableHighlight>
 
         <Image
             style = {styles.history}
             source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Font_Awesome_5_solid_history.svg/1200px-Font_Awesome_5_solid_history.svg.png', }}
         />
+        
         </View>
     )
   };

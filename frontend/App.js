@@ -10,6 +10,7 @@ import Accessibility from './components/Accessibility.js';
 import ForgotPassword from './components/ForgotPassword';
 import Login from './components/Login.js';
 import Home from './components/Home.js';
+import Profile from './components/Profile';
 
 export default function App() {
   return (
