@@ -172,11 +172,6 @@ const api = axios.create({
       onChangeText = {(confirmPass) => setCP(confirmPass)}
       />
 
-    <TextInput style={styles.inputBox}
-      label = 'Date of Birth'
-      value = {DOB}
-      onChangeText = {(DOB) => setDoB(DOB)}
-      />
 {/*       
  This will need to be a dropdown Later on, also work on the submit button and shit  */}
       
