@@ -306,7 +306,7 @@ const api = axios.create({
           />
         </TouchableHighlight>
 
-        <TouchableHighlight>
+        <TouchableHighlight onPress={() => navigation.navigate("History")}>
         <Image
             style = {styles.history}
             source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Font_Awesome_5_solid_history.svg/1200px-Font_Awesome_5_solid_history.svg.png', }}
