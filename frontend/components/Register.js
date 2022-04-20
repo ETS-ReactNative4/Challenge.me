@@ -93,15 +93,15 @@ row: {
 
 import axios from 'axios';
 const api = axios.create({
-  baseURL: 'http://localhost:25484'
+  baseURL: 'http://localhost:3000'
 })
 
   const Register = ({navigation}) => {
     const [Fname, setFname] = React.useState("");
     const [Lname, setLname] = React.useState("");
-    const[username, setUN] = React.useState(""); 
-    const[password, setpass] = React.useState(""); 
-    const[Gender, setGender] = React.useState(""); 
+    const [username, setUN] = React.useState(""); 
+    const [password, setpass] = React.useState(""); 
+    const [Gender, setGender] = React.useState(""); 
     const [confirmPass, setCP] = React.useState("");;
     const handleChange = (event) => {
       setGender(event.target.value);
@@ -129,6 +129,7 @@ const api = axios.create({
         dateOfBirth: DOB,
         gender: Gender,
       }
+      
       axios.post(`https://jsonplaceholder.typicode.com/users`, { data })
       .then(res => {
         console.log(res);

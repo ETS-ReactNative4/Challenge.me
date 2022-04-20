@@ -211,6 +211,10 @@ const api = axios.create({
     const tasks = ['one', 'two', 'three', 'four'];
     const [totalDuration, setTotalDuration] = useState(0);
     const duration = useState(0);
+    const [isSelected1, setSelection1] = useState(false);
+    const [isSelected2, setSelection2] = useState(false);
+    const [isSelected3, setSelection3] = useState(false);
+    const [isSelected4, setSelection4] = useState(false);
 
     const profileFunction = () => {
       navigation.navigate("Profile");
@@ -276,22 +280,34 @@ const api = axios.create({
 
         {/*Database items get loaded here*/}
         <Text style = {styles.taskItem}>
-          <Checkbox></Checkbox>
+          <Checkbox
+            value={isSelected1}
+            onValueChange={setSelection1}
+          />
           Run a mile
           <strong style={{fontSize: 25, position: 'absolute', left: '70%', color: "#265A92"}}>100</strong>
         </Text>
         <Text style = {styles.taskItem}>
-          <Checkbox></Checkbox>
+          <Checkbox
+            value={isSelected2}
+            onValueChange={setSelection2}
+          />
           Try a new recipe
           <strong style={{fontSize: 25, position: 'absolute', left: '70%', color: "#265A92"}}>100</strong>
         </Text>
         <Text style = {styles.taskItem}>
-          <Checkbox></Checkbox>
+          <Checkbox
+            value={isSelected3}
+            onValueChange={setSelection3}
+          />
           Hit the gym 3 times
           <strong style={{fontSize: 25, position: 'absolute', left: '70%', color: "#265A92"}}>100</strong>
         </Text>
         <Text style = {styles.taskItem}>
-          <Checkbox></Checkbox>
+          <Checkbox
+            value={isSelected4}
+            onValueChange={setSelection4}
+          />
           Work on the yard
           <strong style={{fontSize: 25, position: 'absolute', left: '70%', color: "#265A92"}}>100</strong>
         </Text>
