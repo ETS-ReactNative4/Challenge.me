@@ -115,40 +115,13 @@ const api = axios.create({
         password: password,
         dateOfBirth: DOB,
         gender: Gender,
-        accessibilitySettingsIds: [],
       }
-<<<<<<< HEAD
-      navigation.navigate("AccessibilityCreation");
-    }
-
-    const Register = () => {
-      const data = { 
-        firstName:  Fname,
-        lastName: Lname,
-        username: username,
-        password: password,
-        dateOfBirth: DOB,
-        gender: Gender,
-      }
+      
       axios.post(`https://jsonplaceholder.typicode.com/users`, { data })
       .then(res => {
         console.log(res);
         console.log(res.data);
       })
-=======
-      
-      if(data.password != confirmPass){
-        err
-      }
-
-      navigation.navigate("Login");
-    }
-
-    const areThingsNull = () => {
-      return(
-        firstname === '' && lastname === '' && username === '' && password === '' && Gender === ''
-      ) 
->>>>>>> c0733d253b9519129e56cc97e03751e394a701a7
     }
 
     return (
