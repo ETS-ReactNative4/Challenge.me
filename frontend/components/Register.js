@@ -117,7 +117,6 @@ const api = axios.create({
         gender: Gender,
         accessibilitySettingsIds: [],
       }
-<<<<<<< HEAD
       navigation.navigate("AccessibilityCreation");
     }
 
@@ -135,20 +134,6 @@ const api = axios.create({
         console.log(res);
         console.log(res.data);
       })
-=======
-      
-      if(data.password != confirmPass){
-        err
-      }
-
-      navigation.navigate("Login");
-    }
-
-    const areThingsNull = () => {
-      return(
-        firstname === '' && lastname === '' && username === '' && password === '' && Gender === ''
-      ) 
->>>>>>> c0733d253b9519129e56cc97e03751e394a701a7
     }
 
     return (
