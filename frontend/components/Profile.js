@@ -77,9 +77,9 @@ const styles = StyleSheet.create({
 });
 
 const Profile = ({navigation}) => {
-    const firstName = React.useState("Test First Name");
-    const lastName = React.useState("Test Last Name");
-    const username = React.useState("Test username");
+    const firstName = React.useState("Amara");
+    const lastName = React.useState("Obasi");
+    const username = React.useState("aobasi");
     const dob = React.useState("August 14, 2000");
     const gender = React.useState("Male");
     const [isSelected, setSelection] = useState(false);
