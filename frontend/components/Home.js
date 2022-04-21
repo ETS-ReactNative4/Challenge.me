@@ -185,7 +185,42 @@ import FormControlLabel from '@mui/material/FormControlLabel';
     fontSize: 30,
     paddingTop: 10,
     paddingBottom: 12,
-    width: '60%'
+    width: '60%',
+    position: 'absolute',
+    bottom: '60%',
+    left: '20%',
+  },
+  taskItem2: {
+    backgroundColor: '#FFFFFF',
+    borderStyle: 'solid',
+    borderWidth: 2,
+    borderRadius: 7,
+    borderColor: '#999999',
+    boxShadow: "4px 4px 5px lightblue",
+    marginBottom: 10,
+    fontSize: 30,
+    paddingTop: 10,
+    paddingBottom: 12,
+    width: '60%',
+    position: 'absolute',
+    bottom: '50%',
+    left: '20%',
+  },
+  taskItem3: {
+    backgroundColor: '#FFFFFF',
+    borderStyle: 'solid',
+    borderWidth: 2,
+    borderRadius: 7,
+    borderColor: '#999999',
+    boxShadow: "4px 4px 5px lightblue",
+    marginBottom: 10,
+    fontSize: 30,
+    paddingTop: 10,
+    paddingBottom: 12,
+    width: '60%',
+    position: 'absolute',
+    bottom: '40%',
+    left: '20%',
   },
   hudBar: {
     backgroundColor: "#999999",
@@ -261,7 +296,7 @@ const api = axios.create({
 
         {/*This is a placeholder for the actual value of points the user has*/}
         <Text style = {styles.score}>
-          {points} / 400
+          {points} / 300
         </Text>
 
         <Text style = {styles.numberText} >
@@ -270,10 +305,28 @@ const api = axios.create({
         <Text style = {styles.line}></Text>
 
         <FormGroup>
+          <View style={styles.taskItem}>
           <FormControlLabel control={<Checkbox onClick ={increasePoints}/>} label="Run A Mile" />
+          </View>
+          <View style={styles.taskItem2}>
           <FormControlLabel control={<Checkbox onClick ={increasePoints}/>} label="Go the Gym 3 Times" />
+          </View>
+          <View style={styles.taskItem3}>
           <FormControlLabel control={<Checkbox onClick ={increasePoints}/>} label="Try a new Recipe" />
+          </View>
         </FormGroup>
+
+        <strong style={{fontSize: 25, position: 'absolute', bottom: '63%',left: '70%', color: "#265A92"}}>
+          100
+        </strong>
+        <strong style={{fontSize: 25, position: 'absolute', bottom: '53%',left: '70%', color: "#265A92"}}>
+          100
+        </strong>
+        <strong style={{fontSize: 25, position: 'absolute', bottom: '43%',left: '70%', color: "#265A92"}}>
+          100
+        </strong>
+
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
         
 
         {/*Database items get loaded here*/}
