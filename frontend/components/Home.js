@@ -16,8 +16,10 @@ import {
     TextInput,
     Button,
     List,
-    Checkbox,
   } from 'react-native-paper';
+  import Checkbox from '@mui/material/Checkbox';
+  import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
   //import CountDown to show the timer
   import CountDown from 'react-native-countdown-component';
@@ -215,7 +217,7 @@ const api = axios.create({
     const [isSelected2, setSelection2] = useState(false);
     const [isSelected3, setSelection3] = useState(false);
     const [isSelected4, setSelection4] = useState(false);
-    const points = useState(0);
+    const [points,setpoints] = useState(0);
 
     const profileFunction = () => {
       navigation.navigate("Profile");
@@ -250,7 +252,8 @@ const api = axios.create({
     }, []);
 
     const increasePoints = () => {
-      points += 100;
+      const new_points = points + 100;
+      setpoints(new_points)
     }
 
     return (
@@ -266,41 +269,15 @@ const api = axios.create({
         </Text>
         <Text style = {styles.line}></Text>
 
+        <FormGroup>
+          <FormControlLabel control={<Checkbox onClick ={increasePoints}/>} label="Run A Mile" />
+          <FormControlLabel control={<Checkbox onClick ={increasePoints}/>} label="Go the Gym 3 Times" />
+          <FormControlLabel control={<Checkbox onClick ={increasePoints}/>} label="Try a new Recipe" />
+        </FormGroup>
         
 
         {/*Database items get loaded here*/}
-        <Text style = {styles.taskItem}>
-          <Checkbox
-            value={isSelected1}
-            onValueChange={setSelection1}
-          />
-          Run a mile
-          <strong style={{fontSize: 25, position: 'absolute', left: '70%', color: "#265A92"}}>100</strong>
-        </Text>
-        <Text style = {styles.taskItem}>
-          <Checkbox
-            value={isSelected2}
-            onValueChange={setSelection2}
-          />
-          Try a new recipe
-          <strong style={{fontSize: 25, position: 'absolute', left: '70%', color: "#265A92"}}>100</strong>
-        </Text>
-        <Text style = {styles.taskItem}>
-          <Checkbox
-            value={isSelected3}
-            onValueChange={setSelection3}
-          />
-          Hit the gym 3 times
-          <strong style={{fontSize: 25, position: 'absolute', left: '70%', color: "#265A92"}}>100</strong>
-        </Text>
-        <Text style = {styles.taskItem}>
-          <Checkbox
-            value={isSelected4}
-            onValueChange={setSelection4}
-          />
-          Work on the yard
-          <strong style={{fontSize: 25, position: 'absolute', left: '70%', color: "#265A92"}}>100</strong>
-        </Text>
+        
 
         <br></br><br></br>
 
