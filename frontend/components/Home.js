@@ -205,7 +205,7 @@ const api = axios.create({
   baseURL: 'http://localhost:25484'
 })
 
-  const Login = ({navigation}) => {
+  const Login = ({route,navigation}) => {
     const[username, setUN] = React.useState(""); 
     const[password, setpass] = React.useState(""); 
     const tasks = ['one', 'two', 'three', 'four'];

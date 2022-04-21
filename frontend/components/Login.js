@@ -88,7 +88,10 @@ import {
                 console.log(res);
                 console.log(res.data);
                 //navigate to Login Page
-                navigation.navigate("Home");
+                navigation.navigate("Home", {
+                    user: username,
+                    pass: password
+                });
             })
             .catch(err => {
             console.error(err);
