@@ -91,12 +91,6 @@ import {
         onChangeText = {(username) => setUN(username)}
         />
 
-        <TextInput style={styles.inputBox}
-        label = 'Date of Birth'
-        value = {DOB}
-        onChangeText = {(DOB) => setDOB(DOB)}
-        />
-
         <TextInput style={styles.inputBox} secureTextEntry={true}
         label = 'New Password'
         value = {password}
