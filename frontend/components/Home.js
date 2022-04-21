@@ -258,7 +258,7 @@ const api = axios.create({
 
         {/*This is a placeholder for the actual value of points the user has*/}
         <Text style = {styles.score}>
-          {points} / 1000
+          {points} / 400
         </Text>
 
         <Text style = {styles.numberText} >
