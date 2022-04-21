@@ -137,7 +137,7 @@ import {
   line: {
       position: 'absolute',
       left: '40%',
-      bottom: '85%',
+      bottom: '79%',
       borderStyle: 'solid',
       borderWidth: 1,
       borderRadius: 5,
@@ -147,7 +147,7 @@ import {
   numberText: {
     textAlign: 'center',
     position: 'absolute',
-    bottom: '85.1%',
+    bottom: '80%',
     fontSize: 15,
   },
   progressBar: {
@@ -215,6 +215,7 @@ const api = axios.create({
     const [isSelected2, setSelection2] = useState(false);
     const [isSelected3, setSelection3] = useState(false);
     const [isSelected4, setSelection4] = useState(false);
+    const points = useState(0);
 
     const profileFunction = () => {
       navigation.navigate("Profile");
@@ -248,12 +249,16 @@ const api = axios.create({
       */
     }, []);
 
+    const increasePoints = () => {
+      points += 100;
+    }
+
     return (
         <View style = {styles.container}>
 
         {/*This is a placeholder for the actual value of points the user has*/}
         <Text style = {styles.score}>
-          750
+          {points} / 1000
         </Text>
 
         <Text style = {styles.numberText} >
@@ -261,22 +266,7 @@ const api = axios.create({
         </Text>
         <Text style = {styles.line}></Text>
 
-        <Image
-            style = {styles.flag1}
-            source={require('./flag.png')}
-        /> 
-        <Image
-            style = {styles.flag2}
-            source={require('./flag.png')}
-        /> 
-        <Image
-            style = {styles.flag3}
-            source={require('./flag.png')}
-        /> 
-
-        <Text style = {styles.progressBar}></Text>
-        <Text style = {styles.barFill}></Text>
-        <Text style = {{position: 'absolute', bottom: '73%'}}>550/1000</Text>
+        
 
         {/*Database items get loaded here*/}
         <Text style = {styles.taskItem}>
@@ -322,12 +312,6 @@ const api = axios.create({
           />
         </TouchableHighlight>
 
-        <TouchableHighlight onPress={() => navigation.navigate("History")}>
-        <Image
-            style = {styles.history}
-            source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Font_Awesome_5_solid_history.svg/1200px-Font_Awesome_5_solid_history.svg.png', }}
-        />
-        </TouchableHighlight>
         </View>
         
         </View>
