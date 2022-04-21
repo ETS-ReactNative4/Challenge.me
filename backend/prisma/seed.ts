@@ -1,5 +1,5 @@
-import { accessibilities } from "./seeds/accessibility";
-import { PrismaClient } from "@prisma/client";
+import { accessibilities } from './seeds/accessibility';
+import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 

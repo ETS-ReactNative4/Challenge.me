@@ -1,10 +1,10 @@
-import { ErrorCode } from "./error-code";
+import { ErrorCode } from './error-code';
 
 export class ErrorException extends Error {
   public status: number = 500;
-  public message: string = "";
+  public message: string = '';
 
-  constructor(code: string = ErrorCode.UnknownError, message: string = "") {
+  constructor(code: string = ErrorCode.UnknownError, message: string = '') {
     super(code);
     Object.setPrototypeOf(this, new.target.prototype);
 
