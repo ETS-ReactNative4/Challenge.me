@@ -105,33 +105,38 @@ This is an example of how to list things you need to use the software and how to
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
    git clone https://github.com/Zach-Clay/Challenge.me.git
    ```
-3. Install NPM packages
+2. Install NPM packages
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+3. Navigate to the frontend folder and install npm packages
+  ```sh
+   cd frontend
+   ```
+   ```sh
+   npm install
+   ```
+4. With another terminal open, navigate into the new_backend folder and install npm packages
+  ```sh
+   cd new_backend
+   ```
+   ```sh
+   npm install
+   ```
+5. Within the new_backend folder, start app.js file
+  ```sh
+   node app.js
+   ```
+6. Within the frontend folder, start the React Native application
+  ```sh
+   npm run web
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-UI/UX Resources and Screenshots from the app
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 <!-- ROADMAP -->
