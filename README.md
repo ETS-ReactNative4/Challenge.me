@@ -86,7 +86,7 @@ Challenge.me is a mobile app that will challenge you to get out in the world and
 * [Express REST API](http://expressjs.com)
 * [PostgreSQL](https://www.postgresql.org/docs/9.1/app-psql.html)
 * [AWS Database](https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwjHg-_YvLX3AhVJW3IKHerbDuIYABADGgJxdQ&ae=2&ohost=www.google.com&cid=CAESbeD2Z1h3k416KztSTxKSROgPo4RWBPjjiylOx3z1F_81RrHE7QmhTEvpOlCKL1Uu33Ipsz_RvlwpqSqXPrv4-3bIQlutjJvqKo46XhXfDPfeq1C-HA2wZE3KfrGvSuZbjF5Oxrb9Q_t3URhez_g&sig=AOD64_00zLrg7WCNekn-0crAsbQFwlWh-w&q&adurl&ved=2ahUKEwj-kubYvLX3AhXiYt8KHVIsAKgQ0Qx6BAgFEAE&dct=1)
-* [MySQL] (https://www.mysql.com)
+* [MySQL](https://www.mysql.com)
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
